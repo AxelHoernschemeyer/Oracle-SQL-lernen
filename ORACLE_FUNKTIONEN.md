@@ -43,7 +43,7 @@ VALUES ('Textwert', 123.45);
 
 Verwende Code mit Vorsicht.
 
-### Änderungen einbrennen (COMMIT)
+### Änderungen dauerhaft speichern (COMMIT)
 
 In Oracle sind Änderungen (wie INSERT, UPDATE, DELETE) zunächst nur in Ihrer aktuellen Sitzung sichtbar. Erst ein COMMIT; schreibt die Daten dauerhaft auf die Festplatte, sodass andere Benutzer (oder Programme) sie sehen können. 
 
