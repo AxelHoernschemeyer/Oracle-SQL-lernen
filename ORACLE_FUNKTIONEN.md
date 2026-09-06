@@ -109,3 +109,18 @@ SELECT * FROM bestellungen ORDER BY preis DESC;
 ```
 * **`ASC`**: Aufsteigend (A-Z, 0-9) - *Standardwert*
 * **`DESC`**: Absteigend (Z-A, 9-0)
+
+## 📊 4. Aggregatfunktionen (Berechnungen)
+
+Aggregatfunktionen fassen Werte aus mehreren Zeilen zu einem einzigen Ergebniswert zusammen.
+
+* **`SUM(spalte)`**: Addiert alle Werte der Spalte.
+* **`AVG(spalte)`**: Berechnet den mathematischen Durchschnitt.
+* **`MAX(spalte)` / `MIN(spalte)`**: Ermittelt den höchsten bzw. niedrigsten Wert.
+* **`COUNT(*)`**: Zählt die Anzahl der Zeilen.
+
+### Beispiel mit Spalten-Alias (`AS`)
+Vergibt einen lesbaren Namen für das berechnete Ergebnis.
+```sql
+SELECT SUM(preis) AS gesamtumsatz, COUNT(*) AS anzahl FROM bestellungen;
+```
