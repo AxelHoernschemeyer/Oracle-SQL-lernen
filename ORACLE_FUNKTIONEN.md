@@ -19,6 +19,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
+| **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
+
 
 ---
 
@@ -44,6 +46,36 @@ CREATE TABLE KUNDEN (
     Email        VARCHAR2(100),
     Registriert  DATE DEFAULT SYSDATE
 );
+```
+### Tabellenstruktur ändern (`ALTER TABLE`)
+Modifiziert die Architektur einer bereits existierenden Tabelle, ohne dass Daten gelöscht werden müssen.
+
+```sql
+-- Spalte hinzufügen
+ALTER TABLE tabellen_name ADD spalten_name DATENTYP;
+```
+Beispiel
+```sql
+ALTER TABLE Kunden
+ADD Telefon VARCHAR2(20);
+```
+```sql
+-- Spalte ändern (z. B. vergrößern)
+ALTER TABLE tabellen_name MODIFY spalten_name NEUER_DATENTYP;
+```
+Beispiel
+```sql
+ALTER TABLE Kunden
+MODIFY Telefon VARCHAR2(50);
+```
+-- Spalte komplett löschen
+```sql
+ALTER TABLE tabellen_name DROP COLUMN spalten_name;
+```
+Beispiel
+```sql
+ALTER TABLE Kunden
+DROP COLUMN Telefon;
 ```
 
 ### Wichtige Datentypen in Oracle
