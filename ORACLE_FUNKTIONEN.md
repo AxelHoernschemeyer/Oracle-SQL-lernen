@@ -54,5 +54,19 @@ COMMIT;
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
 ### Daten auslesen (SELECT)
+### Basis-Abfrage (`SELECT`)
+Fragt gezielt Spalten aus einer Tabelle ab.
+```sql
+SELECT spalte1, spalte2 FROM tabellen_name;
+```
 
-*Folgt im nächsten Lernschritt...*
+### Tabellen verknüpfen (`INNER JOIN`)
+Verbindet zwei Tabellen über eine gemeinsame Schlüsselspalte. Es werden nur Datensätze angezeigt, die in BEIDEN Tabellen eine Entsprechung haben.
+```sql
+SELECT k.vorname, b.produkt 
+FROM kunden k
+INNER JOIN bestellungen b ON k.kunden_id = b.kunden_id;
+```
+* **`k` und `b`**: Aliase (Spitznamen) für die Tabellen, um den Code lesbar zu halten.
+* **`ON`**: Definiert die Brücke, über die die Tabellen verknüpft werden.
+
