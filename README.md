@@ -12,7 +12,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 
 ## 📁 Projektstruktur & Inhalt
 * `/skripte` - SQL-Dateien für Tabellenerstellung, Datenmanipulation und Abfragen
-* * `GIT_NACHSCHLAGEWERK.md` - Cheat-Sheet für Mac-Terminal, Git-Workflows und Versionsverwaltungs-Begriffe
+* `GIT_NACHSCHLAGEWERK.md` - Cheat-Sheet für Mac-Terminal, Git-Workflows und Versionsverwaltungs-Begriffe
 
 
 ### Bereits umgesetzte Meilensteine:
