@@ -94,3 +94,18 @@ INNER JOIN Bestellungen b ON b.Kunden_ID = k.Kunden_ID;
 * **`k` und `b`**: Aliase (Spitznamen) für die Tabellen, um den Code lesbar zu halten.
 * **`ON`**: Definiert die Brücke, über die die Tabellen verknüpft werden.
 
+### Daten filtern (`WHERE`)
+Grenzt die Ergebnismenge auf Zeilen ein, die die Bedingung erfüllen.
+```sql
+SELECT * FROM bestellungen WHERE preis > 30.00;
+```
+* **Operatoren:** `>`, `<`, `=`, `>=`, `<=`, `<>` (ungleich).
+* **Verknüpfungen:** `AND` (beide Bedingungen müssen wahr sein), `OR` (mindestens eine).
+
+### Daten sortieren (`ORDER BY`)
+Sortiert das Endergebnis nach einer oder mehreren Spalten. Steht immer ganz am Ende des SQL-Befehls.
+```sql
+SELECT * FROM bestellungen ORDER BY preis DESC;
+```
+* **`ASC`**: Aufsteigend (A-Z, 0-9) - *Standardwert*
+* **`DESC`**: Absteigend (Z-A, 9-0)
