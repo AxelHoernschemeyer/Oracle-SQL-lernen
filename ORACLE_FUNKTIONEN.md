@@ -110,7 +110,7 @@ SELECT * FROM bestellungen ORDER BY preis DESC;
 * **`ASC`**: Aufsteigend (A-Z, 0-9) - *Standardwert*
 * **`DESC`**: Absteigend (Z-A, 9-0)
 
-## 📊 4. Aggregatfunktionen (Berechnungen)
+### 📊 4. Aggregatfunktionen (Berechnungen)
 
 Aggregatfunktionen fassen Werte aus mehreren Zeilen zu einem einzigen Ergebniswert zusammen.
 
