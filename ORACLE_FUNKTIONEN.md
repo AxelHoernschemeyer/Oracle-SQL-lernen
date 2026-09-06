@@ -78,15 +78,26 @@ Beispiel
 ALTER TABLE Kunden
 DROP COLUMN Telefon;
 ```
-### Ansichten erstellen (`CREATE VIEW`)
-Speichert eine komplexe SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten live aus.
+### Ansichten erstellen (`CREATE VIEW`) - Profi-Level 🚀
+Speichert eine SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten bei jedem Aufruf live aus.
 
 ```sql
-CREATE OR REPLACE VIEW view_name AS
+CREATE [OR REPLACE] [FORCE] VIEW view_name AS
 SELECT spalte1, spalte2
-FROM tabelle1 t1
-JOIN tabelle2 t2 ON t1.id = t2.t1_id;
+FROM tabelle1
+[WITH READ ONLY] [WITH CHECK OPTION];
 ```
+
+#### Die Profi-Zusätze erklärt:
+* **`OR REPLACE`**: Überschreibt eine bestehende View gleichen Namens. **Wichtig:** Bereits vergebene Zugriffsrechte (`GRANTs`) für andere Benutzer auf diese View bleiben im Gegensatz zu einem `DROP` erhalten.
+* **`FORCE`**: Erzwingt das Erstellen der View, selbst wenn die zugrundeliegenden Tabellen noch gar nicht existieren oder fehlerhaft sind. Die View wird als `INVALID` markiert und wird aktiv, sobald die Tabellen existieren.
+* **`WITH READ ONLY`**: Sperrt jegliche Datenmanipulation (`INSERT`, `UPDATE`, `DELETE`) über die View. Perfekt, um Daten für andere Abteilungen sicher bereitzustellen.
+* **`WITH CHECK OPTION`**: Erlaubt Datenänderungen über die View nur dann, wenn der neue Datensatz die `WHERE`-Bedingung der View weiterhin erfüllt (verhindert das "Einschmuggeln" unsichtbarer Zeilen).
+
+#### Einfache vs. Komplexe Views:
+* **Einfache Views (Simple):** Basieren auf nur einer Tabelle, enthalten keine Funktionen oder Gruppierungen. Daten können über sie geändert werden.
+* **Komplexe Views (Complex):** Enthalten `JOINs`, `GROUP BY` oder Berechnungen. Oracle blockiert hier Schreibzugriffe (DML) meist automatisch, da Zeilen nicht mehr eindeutig einer Ursprungstabelle zugeordnet werden können.
+
 Beispiel
 ```sql
 CREATE OR REPLACE VIEW v_kunden_bestellungen as
