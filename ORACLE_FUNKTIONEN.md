@@ -21,7 +21,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 | **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
 | **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view) |
-
+| **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
 
 ---
 
@@ -265,3 +265,23 @@ Vergibt einen lesbaren Namen für das berechnete Ergebnis.
 ```sql
 SELECT SUM(preis) AS gesamtumsatz, COUNT(*) AS anzahl FROM bestellungen;
 ```
+
+## 🚀 5. Fortgeschrittene Techniken
+
+### Unterabfragen (Subqueries)
+Eine Abfrage, die innerhalb einer anderen Abfrage verschachtelt ist, um dynamische Werte bereitzustellen. Wird immer in Klammern `(...)` geschrieben.
+
+#### Einzeilige Subquery (liefert genau einen Wert)
+```sql
+SELECT produkt, preis 
+FROM bestellungen 
+WHERE preis > (SELECT AVG(preis) FROM bestellungen);
+```
+
+#### Mehrzeilige Subquery (liefert eine Liste - Nutzung mit `IN`)
+```sql
+SELECT vorname, nachname 
+FROM kunden 
+WHERE kunden_id IN (SELECT kunden_id FROM bestellungen);
+```
+
