@@ -2,6 +2,25 @@
 
 Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die ich während meines Lernprozesses verwende. 
 
+## 🗺️ Schnellübersicht (Spickzettel)
+
+| SQL-Befehl / Begriff | Kategorie / Zweck | Link zur Erklärung |
+| :--- | :--- | :--- |
+| **CREATE TABLE** | Tabelle neu anlegen | [Zur Erklärung](#tabellen-erstellen-create-table) |
+| **VARCHAR2 / NUMBER / DATE** | Datentypen für Spalten | [Zur Erklärung](#wichtige-datentypen-in-oracle) |
+| **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
+| **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
+| **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-einbrennen-commit) |
+| **SELECT** | Daten auslesen | [Zur Erklärung](#basis-abfrage-select) |
+| **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
+| **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
+| **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
+| **SUM / AVG / COUNT** | Berechnungen & Statistiken | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
+| **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
+
+---
+
+
 ### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
 
 ### Tabellen erstellen (CREATE TABLE)
