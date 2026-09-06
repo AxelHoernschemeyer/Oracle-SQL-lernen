@@ -20,6 +20,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 | **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
+| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view) |
 
 
 ---
@@ -77,6 +78,29 @@ Beispiel
 ALTER TABLE Kunden
 DROP COLUMN Telefon;
 ```
+### Ansichten erstellen (`CREATE VIEW`)
+Speichert eine komplexe SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten live aus.
+
+```sql
+CREATE OR REPLACE VIEW view_name AS
+SELECT spalte1, spalte2
+FROM tabelle1 t1
+JOIN tabelle2 t2 ON t1.id = t2.t1_id;
+```
+Beispiel
+```sql
+CREATE OR REPLACE VIEW v_kunden_bestellungen as
+SELECT    k.vorname,
+          k.nachname,
+          k.email,
+          b.produkt,
+          b.preis,
+          b.bestelldatum
+FROM      Kunden k
+INNER JOIN Bestellungen b ON b.kunden_id = k.kunden_id;
+```
+* **`ORACLE_REPLACE`**: Überschreibt eine bestehende View gleichen Namens ohne vorheriges Löschen.
+* **Abfrage:** Eine View wird genau wie eine normale Tabelle via `SELECT * FROM view_name;` abgefragt.
 
 ### Wichtige Datentypen in Oracle
 
