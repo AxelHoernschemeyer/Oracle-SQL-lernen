@@ -26,6 +26,8 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 4. **Datenabfrage & Relationen:** Erste Abfragen mit `SELECT` durchgeführt und relationale Daten mittels `INNER JOIN` und Tabellen-Aliasen (`k`, `b`) erfolgreich verknüpft.
 5. **Filtern und Sortieren:** Filter-Klauseln (`WHERE`, `AND`) und Sortierungs-Mechanismen (`ORDER BY`, `DESC`, `ASC`) erlernt und erfolgreich mit `JOIN`-Abfragen kombiniert.
 6. **Aggregatfunktionen:** Mathematische Berechnungen (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`) auf Datenmengen angewendet und Ergebnisse mittels Spalten-Aliasen (`AS`) formatiert.
+7. **Daten-Gruppierung & Filterung:** Datenbestände mittels `GROUP BY` kategorisiert, aggregierte Umsätze pro Kunde berechnet und berechnete Gruppenwerte via `HAVING` erfolgreich gefiltert.
+8. **Datenmodifikation & Datenintegrität:** Datenbestände sicher mit `UPDATE` modifiziert und das Löschen mit `DELETE` unter Einhaltung und Prüfung von Fremdschlüssel-Constraints (`ORA-02292`) gelernt.
 
 
 ---
