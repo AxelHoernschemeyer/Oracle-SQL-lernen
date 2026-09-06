@@ -17,6 +17,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
 | **SUM / AVG / COUNT** | Berechnungen & Statistiken | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
 | **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
+| **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
+| **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 
 ---
 
@@ -80,6 +82,42 @@ In Oracle sind Änderungen (wie INSERT, UPDATE, DELETE) zunächst nur in Ihrer a
 ```sql
 COMMIT;
 ```
+### Daten ändern (`UPDATE`)
+Aktualisiert bestehende Werte in einer Tabelle.
+```sql
+UPDATE tabellen_name 
+SET spalte1 = 'Neuer Wert', spalte2 = 45.00 
+WHERE id = 1;
+```
+Beispiel
+```sql
+UPDATE    Kunden k
+SET       k.Nachname = 'Müller',
+          k.email = 'max.mueller@googlemail.com'
+Where     k.Kunden_ID = '1';
+```
+* ⚠️ **Achtung:** Ohne `WHERE`-Klausel werden die Daten *aller* Zeilen überschrieben!
+
+### Daten löschen (`DELETE`)
+Löscht Zeilen dauerhaft aus einer Tabelle.
+```sql
+DELETE FROM tabellen_name WHERE id = 1;
+```
+Beispiel
+```sql
+-- 1. Zuerst die Bestellungen des Kunden löschen "Datenabhängigkeit"
+DELETE
+FROM        Bestellungen b
+WHERE       b.Kunden_ID = '2';
+
+-- 2. Danach den Datensatz aus der Kundentabelle löschen.
+DELETE
+FROM        Kunden k
+WHERE       k.Kunden_ID = '2';
+```
+* ⚠️ **Achtung:** Ohne `WHERE`-Klausel wird die gesamte Tabelle geleert!
+* **Datenintegrität:** Wenn ein Fremdschlüssel (`FOREIGN KEY`) auf diese Zeile verweist, blockiert Oracle das Löschen, bis die abhängigen Daten in der anderen Tabelle entfernt wurden.
+
 
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
