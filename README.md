@@ -12,6 +12,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 
 ## 📁 Projektstruktur & Inhalt
 * `/skripte` - SQL-Dateien für Tabellenerstellung, Datenmanipulation und Abfragen
+* `ORACLE_FUNKTIONEN.md` - Mein persönliches Nachschlagewerk für SQL-Befehle, Datentypen und Funktionen
 * `GIT_NACHSCHLAGEWERK.md` - Cheat-Sheet für Mac-Terminal, Git-Workflows und Versionsverwaltungs-Begriffe
 
 
