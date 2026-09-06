@@ -31,6 +31,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 9. **Schema-Einführung & -Modifikation:** Tabellenstrukturen mittels `ALTER TABLE` dynamisch im laufenden Betrieb erweitert (`ADD`), modifiziert (`MODIFY`) und Spalten entfernt (`DROP COLUMN`).
 10. **Virtuelle Tabellenstrukturen (Views):** Komplexe, relationale JOIN-Abfragen mittels `CREATE OR REPLACE VIEW` gekapselt und als wiederverwendbare, virtuelle Tabellen zur Abfrageoptimierung bereitgestellt.
 11. **Erweitertes View-Management (Profi-Level):** Das Nachschlagewerk um fortgeschrittene View-Konzepte (`WITH READ ONLY`, `FORCE`-Klausel, `WITH CHECK OPTION` sowie die Differenzierung zwischen Simple und Complex Views) erweitert.
+12. **Verschachtelte Abfragen (Subqueries):** Dynamische Datenfilterung durch ein- und mehrzeilige Unterabfragen unter Verwendung von Aggregatfunktionen und dem `IN`-Operator implementiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
