@@ -21,6 +21,8 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
    * Tabelle `BESTELLUNGEN` (verknüpft über einen Foreign-Key-Constraint zur Absicherung der referentiellen Integrität)
    * Testdatensätze erfolgreich eingefügt und per `COMMIT` dauerhaft gespeichert.
 4. **Datenabfrage & Relationen:** Erste Abfragen mit `SELECT` durchgeführt und relationale Daten mittels `INNER JOIN` und Tabellen-Aliasen (`k`, `b`) erfolgreich verknüpft.
+5. **Filtern und Sortieren:** Filter-Klauseln (`WHERE`, `AND`) und Sortierungs-Mechanismen (`ORDER BY`, `DESC`, `ASC`) erlernt und erfolgreich mit `JOIN`-Abfragen kombiniert.
+
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
