@@ -20,6 +20,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
    * Tabelle `KUNDEN` (mit Auto-Inkrement ID via Identity-Spalte)
    * Tabelle `BESTELLUNGEN` (verknüpft über einen Foreign-Key-Constraint zur Absicherung der referentiellen Integrität)
    * Testdatensätze erfolgreich eingefügt und per `COMMIT` dauerhaft gespeichert.
+4. **Datenabfrage & Relationen:** Erste Abfragen mit `SELECT` durchgeführt und relationale Daten mittels `INNER JOIN` und Tabellen-Aliasen (`k`, `b`) erfolgreich verknüpft.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
