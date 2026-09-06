@@ -176,6 +176,23 @@ Aggregatfunktionen fassen Werte aus mehreren Zeilen zu einem einzigen Ergebniswe
 * **`MAX(spalte)` / `MIN(spalte)`**: Ermittelt den höchsten bzw. niedrigsten Wert.
 * **`COUNT(*)`**: Zählt die Anzahl der Zeilen.
 
+### Daten gruppieren (`GROUP BY`)
+Teilt die Daten in Gruppen auf, um Aggregatfunktionen (wie `SUM`, `COUNT`) für bestimmte Kategorien zu berechnen.
+```sql
+SELECT kunden_id, SUM(preis) FROM bestellungen GROUP BY kunden_id;
+```
+* **Goldene Regel:** Jede Spalte im `SELECT`, die nicht in einer Aggregatfunktion steckt, *muss* im `GROUP BY` stehen.
+
+### Gruppierte Daten filtern (`HAVING`)
+Filtert das Ergebnis *nachdem* die Gruppen berechnet wurden (im Gegensatz zu `WHERE`, das vor der Berechnung filtert).
+```sql
+SELECT kunden_id, SUM(preis) 
+FROM bestellungen 
+GROUP BY kunden_id 
+HAVING SUM(preis) > 50.00;
+```
+
+
 ### Beispiel mit Spalten-Alias (`AS`)
 Vergibt einen lesbaren Namen für das berechnete Ergebnis.
 ```sql
