@@ -8,13 +8,12 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 
 Erstellt eine neue Struktur in der Datenbank. 
 
-sql
-
+```sql
 CREATE TABLE tabellen_name (
     spalte1 DATENTYP EINSCHRÄNKUNG,
     spalte2 DATENTYP
 );
-
+```
 
 ### Wichtige Datentypen in Oracle
 
@@ -35,21 +34,18 @@ CREATE TABLE tabellen_name (
 
 Fügt einer bestehenden Tabelle neue Zeilen (Datensätze) hinzu. 
 
-sql
-
+```sql
 INSERT INTO tabellen_name (spalte1, spalte2) 
 VALUES ('Textwert', 123.45);
-
+```
 
 ### Änderungen dauerhaft speichern (COMMIT)
 
 In Oracle sind Änderungen (wie INSERT, UPDATE, DELETE) zunächst nur in Ihrer aktuellen Sitzung sichtbar. Erst ein COMMIT; schreibt die Daten dauerhaft auf die Festplatte, sodass andere Benutzer (oder Programme) sie sehen können. 
 
-sql
-
+```sql
 COMMIT;
-
-
+```
 
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
