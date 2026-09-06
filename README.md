@@ -30,6 +30,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 8. **Datenmodifikation & Datenintegrität:** Datenbestände sicher mit `UPDATE` modifiziert und das Löschen mit `DELETE` unter Einhaltung und Prüfung von Fremdschlüssel-Constraints (`ORA-02292`) gelernt.
 9. **Schema-Einführung & -Modifikation:** Tabellenstrukturen mittels `ALTER TABLE` dynamisch im laufenden Betrieb erweitert (`ADD`), modifiziert (`MODIFY`) und Spalten entfernt (`DROP COLUMN`).
 10. **Virtuelle Tabellenstrukturen (Views):** Komplexe, relationale JOIN-Abfragen mittels `CREATE OR REPLACE VIEW` gekapselt und als wiederverwendbare, virtuelle Tabellen zur Abfrageoptimierung bereitgestellt.
+11. **Erweitertes View-Management (Profi-Level):** Das Nachschlagewerk um fortgeschrittene View-Konzepte (`WITH READ ONLY`, `FORCE`-Klausel, `WITH CHECK OPTION` sowie die Differenzierung zwischen Simple und Complex Views) erweitert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
