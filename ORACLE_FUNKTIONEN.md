@@ -15,7 +15,6 @@ CREATE TABLE tabellen_name (
     spalte2 DATENTYP
 );
 
-Verwende Code mit Vorsicht.
 
 ### Wichtige Datentypen in Oracle
 
