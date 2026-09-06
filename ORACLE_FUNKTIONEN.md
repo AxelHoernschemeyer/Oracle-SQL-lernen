@@ -40,7 +40,6 @@ sql
 INSERT INTO tabellen_name (spalte1, spalte2) 
 VALUES ('Textwert', 123.45);
 
-Verwende Code mit Vorsicht.
 
 ### Änderungen dauerhaft speichern (COMMIT)
 
@@ -50,7 +49,7 @@ sql
 
 COMMIT;
 
-Verwende Code mit Vorsicht.
+
 
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
