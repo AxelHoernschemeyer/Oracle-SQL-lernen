@@ -28,7 +28,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 6. **Aggregatfunktionen:** Mathematische Berechnungen (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT`) auf Datenmengen angewendet und Ergebnisse mittels Spalten-Aliasen (`AS`) formatiert.
 7. **Daten-Gruppierung & Filterung:** Datenbestände mittels `GROUP BY` kategorisiert, aggregierte Umsätze pro Kunde berechnet und berechnete Gruppenwerte via `HAVING` erfolgreich gefiltert.
 8. **Datenmodifikation & Datenintegrität:** Datenbestände sicher mit `UPDATE` modifiziert und das Löschen mit `DELETE` unter Einhaltung und Prüfung von Fremdschlüssel-Constraints (`ORA-02292`) gelernt.
-
+9. **Schema-Einführung & -Modifikation:** Tabellenstrukturen mittels `ALTER TABLE` dynamisch im laufenden Betrieb erweitert (`ADD`), modifiziert (`MODIFY`) und Spalten entfernt (`DROP COLUMN`).
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
