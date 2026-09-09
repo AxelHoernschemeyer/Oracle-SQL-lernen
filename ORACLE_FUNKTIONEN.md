@@ -22,6 +22,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
 | **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view) |
 | **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
+| **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
+| **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
 
 ---
 
@@ -285,3 +287,17 @@ FROM kunden
 WHERE kunden_id IN (SELECT kunden_id FROM bestellungen);
 ```
 
+### Text-Funktionen (Strings)
+Ermöglichen das Bearbeiten und Formatieren von Textfeldern.
+
+* **`UPPER(text)` / `LOWER(text)`**: Wandelt den Text komplett in Groß- oder Kleinbuchstaben um.
+* **`text1 || text2`**: Der Verkettungs-Operator (Pipe-Zeichen). Klebt Texte zusammen.
+* **`LENGTH(text)`**: Liefert die Anzahl der Zeichen im Text.
+* **`SUBSTR(text, start, laenge)`**: Schneidet einen Teilstring ab der `start`-Position mit der angegebenen `laenge` heraus.
+
+```sql
+-- Praxis-Beispiel
+SELECT UPPER(nachname) || ', ' || vorname AS Name,
+       SUBSTR(email, 1, 5) AS email_anfang
+FROM kunden;
+```
