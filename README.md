@@ -33,6 +33,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 11. **Erweitertes View-Management (Profi-Level):** Das Nachschlagewerk um fortgeschrittene View-Konzepte (`WITH READ ONLY`, `FORCE`-Klausel, `WITH CHECK OPTION` sowie die Differenzierung zwischen Simple und Complex Views) erweitert.
 12. **Verschachtelte Abfragen (Subqueries):** Dynamische Datenfilterung durch ein- und mehrzeilige Unterabfragen unter Verwendung von Aggregatfunktionen und dem `IN`-Operator implementiert.
 13. **Textmanipulation (String-Functions):** Funktionen zur String-Bearbeitung (`UPPER`, `LOWER`, `LENGTH`, `SUBSTR`) und den Verkettungs-Operator (`||`) zur Formatierung von Textausgaben angewendet.
+14. **Datumsarithmetik & Formatierung:** Komplexe Zeitberechnungen (`ADD_MONTHS`, `MONTHS_BETWEEN`) durchgeführt und Datums- und Uhrzeitwerte mittels `TO_CHAR` in europäische Anzeigeformate transformiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
