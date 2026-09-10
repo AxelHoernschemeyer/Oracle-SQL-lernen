@@ -26,6 +26,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
 | **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
 | **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
+| **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
 
 ---
 
@@ -303,6 +304,7 @@ SELECT UPPER(nachname) || ', ' || vorname AS Name,
        SUBSTR(email, 1, 5) AS email_anfang
 FROM kunden;
 ```
+
 ### Datums-Funktionen
 Da Oracle im Datentyp `DATE` immer Datum und Uhrzeit speichert, gibt es spezialisierte Funktionen für Zeitberechnungen.
 
@@ -318,3 +320,17 @@ SELECT produkt,
        TRUNC(MONTHS_BETWEEN(SYSDATE, bestelldatum)) AS alter_in_monaten
 FROM bestellungen;
 ```
+
+### Bedingte Logik (`CASE WHEN`)
+Erlaubt es, "If-Then-Else"-Logik direkt in SQL-Abfragen zu integrieren, um Werte dynamisch zu kategorisieren oder zu transformieren.
+
+```sql
+SELECT spalten_name,
+       CASE 
+           WHEN bedingung1 THEN 'Ergebnis 1'
+           WHEN bedingung2 THEN 'Ergebnis 2'
+           ELSE 'Standard-Ergebnis'
+       END AS neuer_spalten_name
+FROM tabellen_name;
+```
+* **Hinweis:** Wird von oben nach unten ausgewertet. Die erste zutreffende Bedingung gewinnt.
