@@ -24,6 +24,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
 | **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
 | **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
+| **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
+| **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
 
 ---
 
@@ -300,4 +302,19 @@ Ermöglichen das Bearbeiten und Formatieren von Textfeldern.
 SELECT UPPER(nachname) || ', ' || vorname AS Name,
        SUBSTR(email, 1, 5) AS email_anfang
 FROM kunden;
+```
+### Datums-Funktionen
+Da Oracle im Datentyp `DATE` immer Datum und Uhrzeit speichert, gibt es spezialisierte Funktionen für Zeitberechnungen.
+
+* **`Datum + X` / `Datum - X`**: Addiert oder subtrahiert eine exakte Anzahl an *Tagen*.
+* **`ADD_MONTHS(datum, x)`**: Addiert `x` Monate zu einem Datum (berücksichtigt Monatslängen).
+* **`MONTHS_BETWEEN(datum1, datum2)`**: Berechnet die Differenz zwischen zwei Daten in Monaten.
+* **`TO_CHAR(datum, 'FORMAT')`**: Wandelt ein Datum in einen Text um und formatiert es (z. B. `'DD.MM.YYYY HH24:MI'`).
+
+```sql
+-- Praxis-Beispiel: Fristen berechnen und schön anzeigen
+SELECT produkt, 
+       TO_CHAR(bestelldatum + 7, 'DD.MM.YYYY') AS lieferfrist,
+       TRUNC(MONTHS_BETWEEN(SYSDATE, bestelldatum)) AS alter_in_monaten
+FROM bestellungen;
 ```
