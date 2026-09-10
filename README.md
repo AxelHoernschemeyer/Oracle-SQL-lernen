@@ -34,6 +34,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 12. **Verschachtelte Abfragen (Subqueries):** Dynamische Datenfilterung durch ein- und mehrzeilige Unterabfragen unter Verwendung von Aggregatfunktionen und dem `IN`-Operator implementiert.
 13. **Textmanipulation (String-Functions):** Funktionen zur String-Bearbeitung (`UPPER`, `LOWER`, `LENGTH`, `SUBSTR`) und den Verkettungs-Operator (`||`) zur Formatierung von Textausgaben angewendet.
 14. **Datumsarithmetik & Formatierung:** Komplexe Zeitberechnungen (`ADD_MONTHS`, `MONTHS_BETWEEN`) durchgeführt und Datums- und Uhrzeitwerte mittels `TO_CHAR` in europäische Anzeigeformate transformiert.
+15. **Bedingte Logik (Conditional Expressions):** Komplexe Transformationen und Werte-Klassifizierungen mittels `CASE WHEN` und `ELSE`-Fallbacks direkt in der Datenabfrage implementiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
