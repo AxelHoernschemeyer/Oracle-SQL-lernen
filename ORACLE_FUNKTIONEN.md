@@ -28,8 +28,6 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
 | **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
-| **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#set-operatoren-ergebnisse-stapeln) |
-
 | **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
 
 ---
@@ -375,12 +373,39 @@ SELECT email, 'Kunde' AS rolle FROM kunden
 UNION ALL
 SELECT 'admin@shop.de', 'Administrator' FROM dual;
 
--- Weiteres Beispiel:
-SELECT 	Vorname AS Name_aus_der_Datenbank,
-		Nachname AS Nachname_aus_der_Datenbank FROM KUNDEN 
+-- Weiteres Beispiel (Namensliste abgleichen):
+SELECT Vorname AS Name_aus_der_Datenbank, Nachname AS Nachname_aus_der_Datenbank FROM KUNDEN 
 UNION
-SELECT 	Nachname, 
-		Nachname FROM Kunden ;
+SELECT Nachname, Nachname FROM Kunden;
 ```
 
 *(Hinweis: `DUAL` ist eine von Oracle fest eingebaute Mini-Tabelle mit nur einer Zeile, die man für Berechnungen oder fixe Werte ohne echte Tabelle nutzen kann).*
+
+---
+
+### 💡 Praxis-Szenarien: Wann braucht man UNION / UNION ALL?
+
+#### Szenario 1: Historische Daten mit Live-Daten zusammenführen (Archiv)
+Verbindet alte, ausgelagerte Archivdaten mit aktuellen Tabellen für eine lückenlose Gesamthistorie. Hier nutzt man `UNION ALL`, da keine überschneidenden Duplikate zu erwarten sind und die Performance geschont wird.
+```sql
+SELECT produkt, preis FROM bestellungen
+UNION ALL
+SELECT produkt, preis FROM bestellungen_archiv;
+```
+
+#### Szenario 2: Bereinigte Adresslisten für das Marketing (Postversand)
+Wirft Kontaktdaten aus völlig unterschiedlichen Tabellen (Kunden, Lieferanten, Mitarbeiter) in einen gemeinsamen Topf. Hier nutzt man zwingend `UNION` (ohne ALL), damit Personen, die in zwei Tabellen gleichzeitig existieren (z. B. ein Mitarbeiter, der privat auch Kunde ist), automatisch aussortiert werden. Das verhindert den doppelten Postversand.
+```sql
+SELECT vorname, nachname, strasse, plz FROM kunden
+UNION
+SELECT vorname, nachname, strasse, plz FROM lieferanten;
+```
+
+#### Szenario 3: Dashboards und Management-Berichte (KPI-Listen)
+Kombiniert völlig unterschiedliche Zählergebnisse, Kennzahlen und Summen zu einem einzigen, kompakten Status-Report untereinander für die Geschäftsführung.
+```sql
+SELECT 'Anzahl Kunden gesamt' AS kennzahl, COUNT(*) AS wert FROM kunden
+UNION ALL
+SELECT 'Gesamtumsatz in Euro', SUM(preis) FROM bestellungen;
+```
+
