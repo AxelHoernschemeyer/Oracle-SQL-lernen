@@ -348,4 +348,9 @@ In SQL steht `NULL` für den Zustand "unbekannt" oder "fehlend". Spezielle Funkt
 SELECT produkt, NVL(preis, 0.00) AS gueltiger_preis 
 FROM bestellungen 
 WHERE produkt IS NOT NULL;
+
+ELECT  Vorname,
+		Nachname,
+		Coalesce(Telefon, Email,'Es wurde keine hinterlegt') AS Primaerer_Kontakt
+FROM Kunden;
 ```
