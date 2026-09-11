@@ -28,6 +28,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
 | **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
+| **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#set-operatoren-ergebnisse-stapeln) |
 
 ---
 
@@ -265,7 +266,6 @@ GROUP BY kunden_id
 HAVING SUM(preis) > 50.00;
 ```
 
-
 ### Beispiel mit Spalten-Alias (`AS`)
 Vergibt einen lesbaren Namen für das berechnete Ergebnis.
 ```sql
@@ -354,3 +354,30 @@ ELECT  Vorname,
 		Coalesce(Telefon, Email,'Es wurde keine hinterlegt') AS Primaerer_Kontakt
 FROM Kunden;
 ```
+
+## 👥 6. Mengen-Operationen (Set Operators)
+
+Set-Operatoren verbinden die Ergebnismengen von zwei oder mehr unabhängigen Abfragen zu einer einzigen Tabelle.
+
+* **`UNION`**: Kombiniert Ergebnisse, sortiert das Endergebnis automatisch und **entfernt doppelte Zeilen (Duplikate)**.
+* **`UNION ALL`**: Kombiniert Ergebnisse ungefiltert. **Behält Duplikate bei** und ist deutlich performanter, da keine Sortierung stattfindet.
+
+### Die strengen Voraussetzungen:
+* Beide Abfragen müssen exakt die **gleiche Anzahl an Spalten** aufweisen.
+* Die Spalten an der jeweils gleichen Position müssen **kompatible Datentypen** besitzen (z. B. NUMBER unter NUMBER).
+* Die Spaltenüberschriften des Endergebnisses richten sich immer nach der *ersten* (oberen) Abfrage.
+
+```sql
+-- Beispiel: Zwei Selektionen zu einer Liste verbinden
+SELECT email, 'Kunde' AS rolle FROM kunden
+UNION ALL
+SELECT 'admin@shop.de', 'Administrator' FROM dual;
+
+-- Weiteres Beispiel:
+SELECT 	Vorname AS Name_aus_der_Datenbank,
+		Nachname AS Nachname_aus_der_Datenbank FROM KUNDEN 
+UNION
+SELECT 	Nachname, 
+		Nachname FROM Kunden ;
+```
+*(Hinweis: `DUAL` ist eine von Oracle fest eingebaute Mini-Tabelle mit nur einer Zeile, die man für Berechnungen oder fixe Werte ohne echte Tabelle nutzen kann).*
