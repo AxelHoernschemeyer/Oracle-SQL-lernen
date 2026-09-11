@@ -380,4 +380,30 @@ UNION
 SELECT 	Nachname, 
 		Nachname FROM Kunden ;
 ```
+### 💡 Praxis-Szenarien: Wann braucht man UNION / UNION ALL?
+
+#### Szenario 1: Historische Daten mit Live-Daten zusammenführen (Archiv)
+Verbindet alte Archivdaten mit aktuellen Tabellen für eine lückenlose Gesamthistorie (Nutzung von `UNION ALL`, da keine Duplikate zu erwarten sind).
+```sql
+SELECT produkt, preis FROM bestellungen
+UNION ALL
+SELECT produkt, preis FROM bestellungen_archiv;
+```
+
+#### Szenario 2: Bereinigte Adresslisten für das Marketing (Postversand)
+Wirft Adressen aus völlig unterschiedlichen Tabellen (Kunden, Lieferanten, Mitarbeiter) in einen Topf. Nutzung von `UNION` (ohne ALL), damit Personen, die in zwei Tabellen existieren, automatisch aussortiert werden und keine Post doppelt erhalten.
+```sql
+SELECT vorname, nachname, strasse, plz FROM kunden
+UNION
+SELECT vorname, nachname, strasse, plz FROM lieferanten;
+```
+
+#### Szenario 3: Dashboards und Management-Berichte (KPIs untereinander)
+Kombiniert völlig unterschiedliche Zählergebnisse und Summen zu einem einzigen, kompakten Status-Report für die Chefetage.
+```sql
+SELECT 'Anzahl Kunden gesamt' AS kennzahl, COUNT(*) AS wert FROM kunden
+UNION ALL
+SELECT 'Gesamtumsatz in Euro', SUM(preis) FROM bestellungen;
+```
+
 *(Hinweis: `DUAL` ist eine von Oracle fest eingebaute Mini-Tabelle mit nur einer Zeile, die man für Berechnungen oder fixe Werte ohne echte Tabelle nutzen kann).*
