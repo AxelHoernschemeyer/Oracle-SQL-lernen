@@ -37,6 +37,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 15. **Bedingte Logik (Conditional Expressions):** Komplexe Transformationen und Werte-Klassifizierungen mittels `CASE WHEN` und `ELSE`-Fallbacks direkt in der Datenabfrage implementiert.
 16. **NULL-Value Handhabung:** Logische Abfragen zur Identifikation leerer Datenfelder (`IS NULL`) sowie Datenbereinigung und Standardwert-Zuweisung mittels `NVL` und `COALESCE` implementiert.
 16. **Mengenoperatoren (Set Operators):** Ergebnismengen strukturell unter Verwendung von `UNION` und `UNION ALL` kombiniert, Duplikatfilterungen analysiert und die Typprüfungsregeln von Oracle erfolgreich angewendet.
+17. **KPI-Dashboard verifiziert:** Das theoretische Dashboard-Szenario mittels `UNION ALL` erfolgreich live in der Docker-Datenbankumgebung getestet und Kennzahlen aggregiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
