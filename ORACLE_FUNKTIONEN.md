@@ -27,6 +27,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
 | **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
 | **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
+| **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
 
 ---
 
@@ -334,3 +335,17 @@ SELECT spalten_name,
 FROM tabellen_name;
 ```
 * **Hinweis:** Wird von oben nach unten ausgewertet. Die erste zutreffende Bedingung gewinnt.
+
+### Umgang mit NULL-Werten
+In SQL steht `NULL` für den Zustand "unbekannt" oder "fehlend". Spezielle Funktionen fangen Berechnungs- und Anzeigefehler ab.
+
+* **`NVL(spalte, ersatzwert)`**: Ersetzt ein `NULL` in der angegebenen Spalte durch den `ersatzwert`. Beide müssen denselben Datentyp haben.
+* **`COALESCE(wert1, wert2, wert3, ...)`**: Gibt den ersten Wert aus der Liste zurück, der *nicht* `NULL` ist.
+* **`IS NULL` / `IS NOT NULL`**: Die einzig zulässige Syntax in der `WHERE`-Klausel, um auf leere bzw. gefüllte Felder zu filtern.
+
+```sql
+-- Praxis-Beispiel
+SELECT produkt, NVL(preis, 0.00) AS gueltiger_preis 
+FROM bestellungen 
+WHERE produkt IS NOT NULL;
+```
