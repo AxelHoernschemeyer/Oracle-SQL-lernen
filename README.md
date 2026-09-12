@@ -38,6 +38,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 16. **NULL-Value Handhabung:** Logische Abfragen zur Identifikation leerer Datenfelder (`IS NULL`) sowie Datenbereinigung und Standardwert-Zuweisung mittels `NVL` und `COALESCE` implementiert.
 16. **Mengenoperatoren (Set Operators):** Ergebnismengen strukturell unter Verwendung von `UNION` und `UNION ALL` kombiniert, Duplikatfilterungen analysiert und die Typprüfungsregeln von Oracle erfolgreich angewendet.
 17. **KPI-Dashboard verifiziert:** Das theoretische Dashboard-Szenario mittels `UNION ALL` erfolgreich live in der Docker-Datenbankumgebung getestet und Kennzahlen aggregiert.
+18. **Numerische Rundung:** Mathematische Formatierung von Kennzahlen mittels `ROUND` erlernt und erfolgreich in verschachtelte Aggregatberichte integriert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
