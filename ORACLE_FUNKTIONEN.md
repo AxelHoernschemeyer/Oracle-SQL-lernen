@@ -29,6 +29,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
 | **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
+| **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
 
 ---
 
@@ -270,6 +271,23 @@ HAVING SUM(preis) > 50.00;
 Vergibt einen lesbaren Namen für das berechnete Ergebnis.
 ```sql
 SELECT SUM(preis) AS gesamtumsatz, COUNT(*) AS anzahl FROM bestellungen;
+```
+
+### Zahlen runden (`ROUND`)
+Rundet einen numerischen Wert kaufmännisch auf eine definierte Anzahl von Nachkommastellen.
+
+```sql
+ROUND(zahl, nachkommastellen)
+```
+* Wenn die `nachkommastellen` weggelassen werden, wird auf eine ganze Zahl (0 Nachkommastellen) gerundet.
+* Ab `,5` wird aufgerundet, darunter abgerundet.
+
+```sql
+-- Beispiel im Reporting
+SELECT 	produkt,
+		ROUND(AVG(preis), 2) AS schnitt_gerundet
+FROM 	bestellungen
+GROUP BY produkt;
 ```
 
 ## 🚀 5. Fortgeschrittene Techniken
