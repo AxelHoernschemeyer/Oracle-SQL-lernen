@@ -433,7 +433,11 @@ SELECT 'Gesamtumsatz in Euro', SUM(preis) FROM bestellungen;
 Ermöglicht die explizite Umwandlung eines Datentyps in einen anderen, um Berechnungen, Formatierungen oder Filterungen fehlerfrei durchzuführen.
 
 *   **`TO_CHAR(wert, 'format')`**: Wandelt ein Datum oder eine Zahl in Text um.
-*   **`TO_NUMBER('text')`**: Wandelt einen numerischen Textstring in eine echte Zahl um, mit der gerechnet werden kann.
+*   **`TO_NUMBER('text')`**: Wandelt einen numerischen Textstring in eine echte Zahl um. 
+    *   ⚠️ **Achtung (NLS-Settings):** Hängt von der Systemsprache ab! Im deutschen Raum muss ein Komma verwendet werden (`'45,99'`). Wenn ein Punkt verwendet werden soll, muss die Formatmaske explizit übergeben werden:
+    ```sql
+    SELECT TO_NUMBER('45.99', '99.99', 'NLS_NUMERIC_CHARACTERS = '',.''') FROM dual;
+    ```
 *   **`TO_DATE('text', 'format')`**: Wandelt einen Textstring basierend auf einer Format-Schablone in ein echtes Oracle-Datum um.
 
 ### Wichtige Format-Masken:
