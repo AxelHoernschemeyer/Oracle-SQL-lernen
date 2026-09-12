@@ -30,6 +30,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
 | **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
 | **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
+| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung) |
 
 ---
 
@@ -425,5 +426,23 @@ Kombiniert völlig unterschiedliche Zählergebnisse, Kennzahlen und Summen zu ei
 SELECT 'Anzahl Kunden gesamt' AS kennzahl, COUNT(*) AS wert FROM kunden
 UNION ALL
 SELECT 'Gesamtumsatz in Euro', SUM(preis) FROM bestellungen;
+```
+
+## 🔀 7. Datentyp-Konvertierung (Type Casting)
+
+Ermöglicht die explizite Umwandlung eines Datentyps in einen anderen, um Berechnungen, Formatierungen oder Filterungen fehlerfrei durchzuführen.
+
+*   **`TO_CHAR(wert, 'format')`**: Wandelt ein Datum oder eine Zahl in Text um.
+*   **`TO_NUMBER('text')`**: Wandelt einen numerischen Textstring in eine echte Zahl um, mit der gerechnet werden kann.
+*   **`TO_DATE('text', 'format')`**: Wandelt einen Textstring basierend auf einer Format-Schablone in ein echtes Oracle-Datum um.
+
+### Wichtige Format-Masken:
+*   `DD.MM.YYYY`: Standard-Datumsformat (z. B. 12.09.2026).
+*   `HH24:MI:SS`: 24-Stunden-Uhrzeit (z. B. 17:45:00).
+*   `999G990D00`: Formatmaske für Zahlen mit Tausender- (G) und Dezimaltrenner (D).
+
+```sql
+-- Praxis-Beispiel: Datumsfilter mit Texteingabe
+SELECT * FROM bestellungen WHERE bestelldatum < TO_DATE('31.12.2026', 'DD.MM.YYYY');
 ```
 
