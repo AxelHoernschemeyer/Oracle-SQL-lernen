@@ -41,6 +41,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 18. **Numerische Rundung:** Mathematische Formatierung von Kennzahlen mittels `ROUND` erlernt und erfolgreich in verschachtelte Aggregatberichte integriert.
 19. **Datentyp-Konvertierung (Type Casting):** Explizite Datentyp-Transformationen mittels `TO_CHAR`, `TO_NUMBER` und `TO_DATE` angewendet, um Datenformate für Berechnungen und kalendarische Filterungen zu harmonisieren.
 20. **Erweiterte Tabellen-Verknüpfungen:** Den Unterschied zwischen `INNER JOIN` und Outer Joins (`LEFT JOIN`, `RIGHT JOIN`) erlernt und eingesetzt, um unvollständige Datenbestände ohne Informationsverlust abzufragen.
+21. **Daten-Synchronisation (MERGE):** Den Oracle-spezifischen `MERGE INTO`-Befehl ("Upsert") implementiert, um bedingte Updates und Inserts in einem einzigen, performanten Schritt zu steuern.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
