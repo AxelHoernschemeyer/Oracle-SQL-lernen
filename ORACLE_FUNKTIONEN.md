@@ -30,7 +30,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
 | **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
 | **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
-| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung) |
+| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung-type-casting) |
 | **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
 
 ---
