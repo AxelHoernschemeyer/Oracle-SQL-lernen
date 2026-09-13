@@ -443,7 +443,7 @@ UNION ALL
 SELECT 'Gesamtumsatz in Euro', SUM(preis) FROM bestellungen;
 ```
 
-## 🔀 7. Datentyp-Konvertierung (Type Casting)
+## 🔀 7. Datentyp-Konvertierung Type Casting
 
 Ermöglicht die explizite Umwandlung eines Datentyps in einen anderen, um Berechnungen, Formatierungen oder Filterungen fehlerfrei durchzuführen.
 
