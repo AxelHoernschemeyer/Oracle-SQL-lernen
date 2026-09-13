@@ -32,6 +32,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
 | **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung-type-casting) |
 | **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
+| **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
 
 ---
 
@@ -195,6 +196,18 @@ WHERE       k.Kunden_ID = '2';
 * ⚠️ **Achtung:** Ohne `WHERE`-Klausel wird die gesamte Tabelle geleert!
 * **Datenintegrität:** Wenn ein Fremdschlüssel (`FOREIGN KEY`) auf diese Zeile verweist, blockiert Oracle das Löschen, bis die abhängigen Daten in der anderen Tabelle entfernt wurden.
 
+### Daten synchronisieren (`MERGE INTO`)
+Führt in einem einzigen Befehl ein `UPDATE` (wenn der Datensatz existiert) oder ein `INSERT` (wenn der Datensatz neu ist) aus. Wird oft für Datenimporte (Schnittstellen) genutzt.
+
+```sql
+MERGE INTO ziel_tabelle z
+USING quell_daten q
+ON (z.id = q.id)
+WHEN MATCHED THEN
+    UPDATE SET z.spalte = q.spalte
+WHEN NOT MATCHED THEN
+    INSERT (z.id, z.spalte) VALUES (q.id, q.spalte);
+```
 
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
