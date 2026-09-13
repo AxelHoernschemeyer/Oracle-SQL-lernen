@@ -31,6 +31,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
 | **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
 | **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung) |
+| **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
 
 ---
 
@@ -226,6 +227,20 @@ INNER JOIN Bestellungen b ON b.Kunden_ID = k.Kunden_ID;
 ```
 * **`k` und `b`**: Aliase (Spitznamen) für die Tabellen, um den Code lesbar zu halten.
 * **`ON`**: Definiert die Brücke, über die die Tabellen verknüpft werden.
+
+### Tabellen verknüpfen (Teil 2: Outer Joins)
+
+Während ein `INNER JOIN` nur Datensätze liefert, die in beiden Tabellen eine Entsprechung haben, erhalten Outer Joins auch Zeilen, die in einer der Tabellen keine Zuordnung besitzen.
+
+*   **`LEFT JOIN`**: Liefert **alle** Zeilen der linken Tabelle. Gibt es in der rechten Tabelle keine passenden Daten, werden diese Spalten mit `NULL` aufgefüllt.
+*   **`RIGHT JOIN`**: Spiegelverkehrt zum `LEFT JOIN`. Liefert **alle** Zeilen der rechten Tabelle.
+
+```sql
+-- Praxis-Beispiel: Alle Kunden anzeigen, auch ohne Umsatz
+SELECT k.vorname, b.produkt 
+FROM kunden k
+LEFT JOIN bestellungen b ON k.kunden_id = b.kunden_id;
+```
 
 ### Daten filtern (`WHERE`)
 Grenzt die Ergebnismenge auf Zeilen ein, die die Bedingung erfüllen.
