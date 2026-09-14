@@ -33,6 +33,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung-type-casting) |
 | **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
 | **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
+| **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#8-transaktionssteuerung-tcl) |
+| **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
 
 ---
 
@@ -478,3 +480,17 @@ Ermöglicht die explizite Umwandlung eines Datentyps in einen anderen, um Berech
 SELECT * FROM bestellungen WHERE bestelldatum < TO_DATE('31.12.2026', 'DD.MM.YYYY');
 ```
 
+## 💾 8. Transaktionssteuerung (TCL)
+
+Oracle isoliert Datenänderungen (`DML`), bis sie explizit bestätigt werden. Dies schützt vor Datenverlust und Fehlern.
+
+*   **`COMMIT`**: Schreibt alle Änderungen seit dem letzten Commit dauerhaft auf die Festplatte. Die Transaktion wird erfolgreich beendet.
+*   **`ROLLBACK`**: Verwirft alle ungespeicherten Änderungen der aktuellen Transaktion und stellt den Zustand des letzten Commits wieder her.
+*   **`SAVEPOINT name`**: Setzt einen virtuellen Zwischenstopp (Lesezeichen) innerhalb einer laufenden Transaktion.
+*   **`ROLLBACK TO name`**: Springt gezielt zu einem definierten `SAVEPOINT` zurück.
+
+```sql
+-- Praxis-Beispiel (Manuelles Commit in DBeaver zwingend erforderlich!)
+DELETE FROM bestellungen; -- Tabelle leer
+ROLLBACK;                 -- Daten wieder da!
+```
