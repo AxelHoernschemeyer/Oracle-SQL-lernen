@@ -524,7 +524,7 @@ Indices fungieren als Stichwortverzeichnis für Tabellen, um Suchanfragen (`SELE
 CREATE INDEX index_name ON tabellen_name(spalten_name);
 
 -- Praxis-Beispiel (Index auf häufig genutztes Filterfeld)
-CREATE INDEX idx_kunden_email ON kunden(email);
+CREATE INDEX idx_kunden_nachname ON kunden(nachname);
 ```
 
 ### ⚠️ Abwägung im Alltag:
