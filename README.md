@@ -45,6 +45,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 22. **Transaktionssteuerung (TCL):** Datenintegrität und Ausfallsicherheit durch Transaktions-Mechanismen (`COMMIT`, `ROLLBACK`) gesteuert und komplexe Rücksprungpunkte via `SAVEPOINT` erfolgreich implementiert.
 23. **Datenvalidierung (Constraints):** Fortgeschrittene Integritätsregeln (`NOT NULL`, `UNIQUE`, `CHECK`) integriert und das Datenmodell erfolgreich um eine statusbasierte Wertebereichsprüfung (`IN`-Operator) für Bestellprozesse erweitert.
 24. **Performance-Optimierung (Indexing):** Datenbank-Indices mittels `CREATE INDEX` zur Vermeidung von ressourcenintensiven Full Table Scans implementiert und die Trade-offs zwischen Lese- und Schreibgeschwindigkeit analysiert.
+25. **Fortgeschrittene Textmanipulation:** Komplexe Bereinigungs- und Suchoperationen auf Textstrukturen mittels `TRIM`, `REPLACE` und der Positionsanalyse durch `INSTR` erfolgreich implementiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
