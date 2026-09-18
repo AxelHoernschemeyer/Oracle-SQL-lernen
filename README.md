@@ -44,6 +44,7 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 21. **Daten-Synchronisation (MERGE):** Den Oracle-spezifischen `MERGE INTO`-Befehl ("Upsert") implementiert, um bedingte Updates und Inserts in einem einzigen, performanten Schritt zu steuern.
 22. **Transaktionssteuerung (TCL):** Datenintegrität und Ausfallsicherheit durch Transaktions-Mechanismen (`COMMIT`, `ROLLBACK`) gesteuert und komplexe Rücksprungpunkte via `SAVEPOINT` erfolgreich implementiert.
 23. **Datenvalidierung (Constraints):** Fortgeschrittene Integritätsregeln (`NOT NULL`, `UNIQUE`, `CHECK`) integriert und das Datenmodell erfolgreich um eine statusbasierte Wertebereichsprüfung (`IN`-Operator) für Bestellprozesse erweitert.
+24. **Performance-Optimierung (Indexing):** Datenbank-Indices mittels `CREATE INDEX` zur Vermeidung von ressourcenintensiven Full Table Scans implementiert und die Trade-offs zwischen Lese- und Schreibgeschwindigkeit analysiert.
 
 ---
 *Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
