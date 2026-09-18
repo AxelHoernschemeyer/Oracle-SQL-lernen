@@ -511,3 +511,22 @@ Oracle isoliert Datenänderungen (`DML`), bis sie explizit bestätigt werden. Di
 DELETE FROM bestellungen; -- Tabelle leer
 ROLLBACK;                 -- Daten wieder da!
 ```
+
+## ⚡ 9. Performance-Optimierung (Indices)
+
+Indices fungieren als Stichwortverzeichnis für Tabellen, um Suchanfragen (`SELECT` mit `WHERE`) massiv zu beschleunigen.
+
+*   **`CREATE INDEX`**: Erstellt ein neues Suchverzeichnis für eine oder mehrere Spalten.
+*   **Automatische Indices:** Oracle indiziert Spalten mit `PRIMARY KEY` oder `UNIQUE` automatisch.
+
+```sql
+-- Syntax
+CREATE INDEX index_name ON tabellen_name(spalten_name);
+
+-- Praxis-Beispiel (Index auf häufig genutztes Filterfeld)
+CREATE INDEX idx_kunden_email ON kunden(email);
+```
+
+### ⚠️ Abwägung im Alltag:
+*   **Vorteil:** Drastische Beschleunigung von Lesezugriffen.
+*   **Nachteil:** Verlangsamt Schreibzugriffe (`INSERT`, `UPDATE`, `DELETE`), da der Index bei jeder Änderung neu berechnet werden muss. Kostet zusätzlichen Festplattenspeicher.
