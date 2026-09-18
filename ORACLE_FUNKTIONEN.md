@@ -36,9 +36,9 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#8-transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
 | **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#datenbank-indices-performance) |
+| **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 
 ---
-
 
 ### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
 
@@ -62,6 +62,7 @@ CREATE TABLE KUNDEN (
     Registriert  DATE DEFAULT SYSDATE
 );
 ```
+
 ### Tabellenstruktur ändern (`ALTER TABLE`)
 Modifiziert die Architektur einer bereits existierenden Tabelle, ohne dass Daten gelöscht werden müssen.
 
@@ -92,6 +93,7 @@ Beispiel
 ALTER TABLE Kunden
 DROP COLUMN Telefon;
 ```
+
 ### Ansichten erstellen (`CREATE VIEW`) - Profi-Level 🚀
 Speichert eine SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten bei jedem Aufruf live aus.
 
@@ -152,9 +154,7 @@ ALTER TABLE bestellungen ADD CONSTRAINT chk_preis_positiv CHECK (preis > 0);
 -- Beispiel für einen CHECK-Constraint mit festen Text-Werten (Status-Validierung)
 ALTER TABLE bestellungen ADD status VARCHAR2(20);
 ALTER TABLE bestellungen ADD CONSTRAINT chk_status_gueltig CHECK (status IN ('offen', 'bezahlt', 'versendet'));
-
 ```
-
 
 ### 📥 2. Datenmanipulation (DML - Data Manipulation Language)
 
@@ -179,6 +179,7 @@ In Oracle sind Änderungen (wie INSERT, UPDATE, DELETE) zunächst nur in Ihrer a
 ```sql
 COMMIT;
 ```
+
 ### Daten ändern (`UPDATE`)
 Aktualisiert bestehende Werte in einer Tabelle.
 ```sql
@@ -243,6 +244,7 @@ SELECT    Kunden.Vorname,
           Kunden.Email
 FROM      Kunden;  
 ```
+
 ### Tabellen verknüpfen (`INNER JOIN`)
 Verbindet zwei Tabellen über eine gemeinsame Schlüsselspalte. Es werden nur Datensätze angezeigt, die in BEIDEN Tabellen eine Entsprechung haben.
 ```sql
@@ -419,6 +421,18 @@ ELECT  Vorname,
 		Nachname,
 		Coalesce(Telefon, Email,'Es wurde keine hinterlegt') AS Primaerer_Kontakt
 FROM Kunden;
+```
+
+*   **`TRIM(text)`**: Entfernt alle führenden und nachfolgenden Leerzeichen aus einem Text.
+*   **`REPLACE(text, 'alt', 'neu')`**: Ersetzt alle Vorkommen einer bestimmten Zeichenkette durch eine neue.
+*   **`INSTR(text, 'suchstring')`**: Sucht nach einem Zeichen im Text und gibt die numerische Position des ersten Treffers zurück (liefert `0`, wenn nichts gefunden wurde).
+
+```sql
+-- Praxis-Beispiel für Datenbereinigung
+SELECT TRIM(vorname) AS sauberer_vorname,
+       REPLACE(email, 'gmx.de', 'gmail.com') AS neue_domain,
+       INSTR(email, '@') AS at_index
+FROM kunden;
 ```
 
 ## 👥 6. Mengen-Operationen (Set Operators)
