@@ -147,6 +147,11 @@ INNER JOIN Bestellungen b ON b.kunden_id = k.kunden_id;
 ALTER TABLE kunden MODIFY email NOT NULL;
 ALTER TABLE kunden ADD CONSTRAINT uq_email UNIQUE (email);
 ALTER TABLE bestellungen ADD CONSTRAINT chk_preis_positiv CHECK (preis > 0);
+
+-- Beispiel für einen CHECK-Constraint mit festen Text-Werten (Status-Validierung)
+ALTER TABLE bestellungen ADD status VARCHAR2(20);
+ALTER TABLE bestellungen ADD CONSTRAINT chk_status_gueltig CHECK (status IN ('offen', 'bezahlt', 'versendet'));
+
 ```
 
 
