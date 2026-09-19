@@ -11,3 +11,4 @@ CREATE TABLE bundesliga_tipps
 	);
 
 COMMIT;
+
