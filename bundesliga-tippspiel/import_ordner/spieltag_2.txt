@@ -1,0 +1,9 @@
+2;VfB Stuttgart;1. FC Köln;4:1;2:1
+2;Werder Bremen;RB Leipzig;3:1;1:2
+2;Bor. Mönchengladbach;SV Elversberg;3:4;3:1
+2;Bayer 04 Leverkusen;1. FC Union Berlin;4:0;2:0
+2;SC Paderborn 07;SC Freiburg;0:1;1:1
+2;1899 Hoffenheim;Borussia Dortmund;2:3;1:2
+2;FC Schalke 04;FC Bayern München;0:0;0:3
+2;Hamburger SV;FSV Mainz 05;0:5;2:1
+2;Eintracht Frankfurt;FC Augsburg;1:4;2:0
