@@ -551,6 +551,7 @@ Typische Befehle zur Fehlerbehebung und Systemwiederherstellung bei der Arbeit m
 
 ### 🐳 Docker & Umgebung zurücksetzen
 Wenn der Container neu gestartet oder mit Verzeichnis-Freigaben (`Volume Mapping`) versehen werden muss:
+Achtung: Durch das löschen wird die Datenbank mit allen Inhalten komplett gelöscht!
 ```bash
 # Container stoppen und vollständig löschen
 docker stop oracle-free && docker rm oracle-free
