@@ -38,6 +38,9 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#datenbank-indices-performance) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 
+| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#10-plsql-packages) |
+| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
+
 ---
 
 ### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
@@ -545,7 +548,63 @@ CREATE INDEX idx_kunden_nachname ON kunden(nachname);
 *   **Vorteil:** Drastische Beschleunigung von Lesezugriffen.
 *   **Nachteil:** Verlangsamt Schreibzugriffe (`INSERT`, `UPDATE`, `DELETE`), da der Index bei jeder Änderung neu berechnet werden muss. Kostet zusätzlichen Festplattenspeicher.
 
-## 🛠️ 10. Administration & Troubleshooting (Docker & Berechtigungen)
+## 📦 10. PL/SQL Packages
+
+Ein Package bündelt zusammengehörige Prozeduren, Funktionen und Variablen in einem gemeinsamen Container. Es besteht immer aus zwei Teilen:
+
+*   **`PACKAGE (Specification)`**: Das "Schaufenster". Deklariert alle öffentlich sichtbaren Prozeduren und Funktionen.
+*   **`PACKAGE BODY`**: Die "Werkstatt". Enthält den echten Programmiercode und die Logik.
+
+```sql
+-- 1. Spezifikation (Das Schaufenster)
+CREATE OR REPLACE PACKAGE mein_pkg AS
+    PROCEDURE meine_prozedur;
+END mein_pkg;
+/
+
+-- 2. Body (Die Werkstatt)
+CREATE OR REPLACE PACKAGE BODY mein_pkg AS
+    PROCEDURE meine_prozedur AS
+    BEGIN
+        -- Hier steht die Programmierlogik
+        NULL; 
+    END meine_prozedur;
+END mein_pkg;
+/
+
+-- Aufruf einer Prozedur aus dem Package
+BEGIN
+    mein_pkg.meine_prozedur;
+END;
+/
+```
+
+## ⏱️ 11. Automatisierung (DBMS_SCHEDULER)
+
+Mit dem Oracle Scheduler lassen sich PL/SQL-Blöcke oder Packages zeitgesteuert und vollautomatisch im Hintergrund der Datenbank ausführen.
+
+```sql
+-- Einen neuen Hintergrund-Job anlegen
+BEGIN
+    DBMS_SCHEDULER.CREATE_JOB (
+        job_name        => 'mein_hintergrund_job',
+        job_type        => 'STORED_PROCEDURE',
+        job_action      => 'mein_pkg.meine_prozedur',
+        start_date      => SYSTIMESTAMP,
+        repeat_interval => 'FREQ=HOURLY; INTERVAL=1', -- Frequenzen: MINUTELY, HOURLY, DAILY, WEEKLY
+        enabled         => TRUE
+    );
+END;
+/
+
+-- Einen Job manuell sofort im Hintergrund anstoßen (zu Testzwecken)
+EXEC DBMS_SCHEDULER.RUN_JOB('mein_hintergrund_job');
+
+-- Einen bestehenden Job löschen
+EXEC DBMS_SCHEDULER.DROP_JOB('mein_hintergrund_job');
+```
+
+## 🛠️ 12. Administration & Troubleshooting (Docker & Berechtigungen)
 
 Typische Befehle zur Fehlerbehebung und Systemwiederherstellung bei der Arbeit mit Oracle im Docker-Container.
 
