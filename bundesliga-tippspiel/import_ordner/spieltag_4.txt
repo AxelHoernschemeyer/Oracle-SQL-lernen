@@ -1,0 +1,9 @@
+FC Bayern München;1. FC Union Berlin;7:0;3:1
+Werder Bremen;FC Augsburg;3:2;1:2
+Eintracht Frankfurt;SC Freiburg;2:2;1:2
+Bor. Mönchengladbach;FSV Mainz 05;3:4;1:2
+Hamburger SV;1. FC Köln;2:1;1:2
+VfB Stuttgart;Borussia Dortmund;0:1;1:3
+Bayer 04 Leverkusen;RB Leipzig;;2:1
+FC Schalke 04;SV Elversberg;;1:2
+SC Paderborn 07;1899 Hoffenheim;;1:2
