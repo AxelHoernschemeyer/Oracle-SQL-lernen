@@ -39,7 +39,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 | **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#10-plsql-packages) |
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
-| **DOCKER / ADMIN** | System-Resets, Rechtevergabe (GRANT) & Troubleshooting | [Zur Erklärung](#12-administration--troubleshooting-docker--berechtigungen) |
+| **DOCKER / ADMIN** | System-Resets, Rechtevergabe (GRANT) & Troubleshooting | [Zur Erklärung](#12-administration-industrial-troubleshooting-docker-industrial-berechtigungen) |
+
 
 ---
 
