@@ -581,7 +581,7 @@ END;
 /
 ```
 
-## ⏱️ 11. Automatisierung (DBMS_SCHEDULER)
+## 11. Automatisierung (DBMS_SCHEDULER)
 
 Mit dem Oracle Scheduler lassen sich PL/SQL-Blöcke oder Packages zeitgesteuert und vollautomatisch im Hintergrund der Datenbank ausführen.
 
@@ -606,7 +606,7 @@ EXEC DBMS_SCHEDULER.RUN_JOB('mein_hintergrund_job');
 EXEC DBMS_SCHEDULER.DROP_JOB('mein_hintergrund_job');
 ```
 
-## 🛠️ 12. Administration & Troubleshooting (Docker & Berechtigungen)
+## 12. Administration & Troubleshooting (Docker & Berechtigungen)
 
 Typische Befehle zur Fehlerbehebung und Systemwiederherstellung bei der Arbeit mit Oracle im Docker-Container.
 
