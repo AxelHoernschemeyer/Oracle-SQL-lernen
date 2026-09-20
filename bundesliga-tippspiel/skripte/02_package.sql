@@ -12,16 +12,16 @@ CREATE OR REPLACE PACKAGE BODY bl_import_pkg AS
         v_tipp         VARCHAR2(10);
         v_ergebnis     VARCHAR2(10);
     BEGIN
-        -- ÄUẞERE SCHLEIFE: Wir wandern dynamisch über alle 34 Spieltage
+        -- ÄUẞERE SCHLEIFE: Spieltage 1 bis 34
         FOR i IN 1..34 LOOP
             
-            -- Dynamischer Dateiname
             v_filename := 'spieltag_' || i || '.txt';
             
             BEGIN
-                -- Datei im Lese-Modus öffnen
+                -- Datei öffnen
                 v_file := UTL_FILE.FOPEN('BL_IMPORT_DIR', v_filename, 'r');
                 
+                -- INNERE SCHLEIFE: Zeilen der Datei lesen
                 LOOP
                     BEGIN
                         UTL_FILE.GET_LINE(v_file, v_line);
@@ -30,8 +30,8 @@ CREATE OR REPLACE PACKAGE BODY bl_import_pkg AS
                         v_spieltag := TO_NUMBER(REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 1, NULL, 1));
                         v_heim     := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 2, NULL, 1);
                         v_gast     := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 3, NULL, 1);
-                        v_tipp     := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 4, NULL, 1);
-                        v_ergebnis := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 5, NULL, 1);
+                        v_tipp     := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 5, NULL, 1);
+                        v_ergebnis := REGEXP_SUBSTR(v_line, '(.*?)(;|$)', 1, 4, NULL, 1);
                         
                         -- Der intelligente Up-Sert (MERGE)
                         MERGE INTO bundesliga_tipps b
@@ -50,27 +50,29 @@ CREATE OR REPLACE PACKAGE BODY bl_import_pkg AS
                         
                     EXCEPTION
                         WHEN NO_DATA_FOUND THEN
-                            EXIT; -- Dateiende erreicht, raus aus der inneren Schleife
+                            EXIT; -- Dateiende erreicht -> Raus aus der inneren Schleife
                     END;
                 END LOOP;
                 
-                -- Datei sauber schließen
-                UTL_FILE.FCLOSE(v_file);
+                -- WICHTIG: Erst Datei schließen, damit das OS sie freigibt!
+                IF UTL_FILE.IS_OPEN(v_file) THEN
+                    UTL_FILE.FCLOSE(v_file);
+                END IF;
                 
-                -- Datei automatisch ins Archiv verschieben
-                UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', v_filename);
+                -- Erst JETZT verschieben
+                -- UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', v_filename);
+                UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', 'Archiv_' || v_filename);
                 
             EXCEPTION
-                -- Falls eine Datei nicht existiert, lautlos zum nächsten Spieltag springen
+                -- Falls die Datei nicht existiert oder FRENAME zickt, lautlos weitermachen
                 WHEN OTHERS THEN
                     IF UTL_FILE.IS_OPEN(v_file) THEN
                         UTL_FILE.FCLOSE(v_file);
                     END IF;
-            END;
+            END; -- Ende des inneren anonymen Blocks
             
-        END LOOP;
+        END LOOP; -- Ende der äußeren FOR-Schleife
         
-        -- Alle Änderungen final speichern
         COMMIT;
     END import_spieltage;
 
