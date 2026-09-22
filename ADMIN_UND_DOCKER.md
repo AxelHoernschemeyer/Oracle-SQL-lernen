@@ -6,16 +6,15 @@ Dieses Betriebshandbuch dient als zentrales Nachschlagewerk für die Einrichtung
 
 | Befehl / Bereich | Beschreibung | Schnellzugriff |
 | :--- | :--- | :--- |
-| **DOCKER CONTAINER** | Container löschen, neu anlegen und Mac-Ordner freigeben | [Zur Erklärung](#1-docker--umgebung-zurucksetzen) |
-| **USER MANAGEMENT** | Benutzer erstellen, Passwörter ändern und System-Rechte vergeben | [Zur Erklärung](#2-benutzer-administration-auszufuhren-als-system-user) |
-| **PERMISSIONS** | Verzeichnis-Objekte (DIRECTORY) und Scheduler-Rechte freischalten | [Zur Erklärung](#3-verzeichnis-und-job-berechtigungen-auszufuhren-als-system-user) |
-| **IDENTITY RESET** | Auto-Increment-Zähler nach dem Leeren von Tabellen zurücksetzen | [Zur Erklärung](#4-identity-spalten-auto-increment-nach-truncate-zurucksetzen) |
-| **TROUBLESHOOTING** | Fehler-Logs auslesen, hängende Schleifen killen und Deadlocks lösen | [Zur Erklärung](#5-package--job-troubleshooting-notfall-befehle) |
+| **DOCKER CONTAINER** | Container löschen, neu anlegen und Mac-Ordner freigeben | [Zur Erklärung](#1-docker-und-umgebung-zurucksetzen) |
+| **USER MANAGEMENT** | Benutzer erstellen, Passwörter ändern und System-Rechte vergeben | [Zur Erklärung](#2-benutzer-administration) |
+| **PERMISSIONS** | Verzeichnis-Objekte (DIRECTORY) und Scheduler-Rechte freischalten | [Zur Erklärung](#3-verzeichnis-und-job-berechtigungen) |
+| **IDENTITY RESET** | Auto-Increment-Zähler nach dem Leeren von Tabellen zurücksetzen | [Zur Erklärung](#4-identity-spalten-nach-truncate-zurucksetzen) |
+| **TROUBLESHOOTING** | Fehler-Logs auslesen, hängende Schleifen killen und Deadlocks lösen | [Zur Erklärung](#5-package-and-job-troubleshooting) |
 
 ---
 
-
-## 1. Docker & Umgebung zurücksetzen
+## 1. Docker und Umgebung zurücksetzen
 
 Typische Befehle zur Fehlerbehebung und Systemwiederherstellung bei der Arbeit mit Oracle im Docker-Container.
 
@@ -35,7 +34,7 @@ docker run -d --name oracle-free -p 1521:1521 \
 
 ---
 
-## 2. Benutzer-Administration (Auszuführen als SYSTEM-User)
+## 2. Benutzer-Administration
 
 Wenn nach einem Docker-Reset der Arbeits-User (`LERNEN`) neu angelegt oder sein Passwort geändert werden muss:
 ```sql
@@ -54,7 +53,7 @@ ALTER USER LERNEN IDENTIFIED BY NeuesPasswort;
 
 ---
 
-## 3. Verzeichnis- und Job-Berechtigungen (Auszuführen als SYSTEM-User)
+## 3. Verzeichnis- und Job-Berechtigungen
 
 Fehler wie `ORA-22285` (Verzeichnis nicht vorhanden) oder `ORA-27486` (Keine Berechtigung für Jobs) lösen:
 ```sql
@@ -70,7 +69,7 @@ GRANT CREATE JOB TO LERNEN;
 
 ---
 
-## 4. Identity-Spalten (Auto-Increment) nach TRUNCATE zurücksetzen
+## 4. Identity-Spalten nach TRUNCATE zurücksetzen
 
 Wenn die Tabelle geleert wird, der ID-Zähler aber wieder bei 1 starten soll:
 ```sql
@@ -83,7 +82,7 @@ TRUNCATE TABLE tabellen_name RESTART IDENTITY;
 
 ---
 
-## 5. Package- & Job-Troubleshooting (Notfall-Befehle)
+## 5. Package and Job Troubleshooting
 
 Befehle zur Fehleranalyse von ungültigen Objekten und zum Beenden von hängenden Hintergrund-Prozessen.
 
