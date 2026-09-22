@@ -1,0 +1,9 @@
+5;Borussia Dortmund;SV Werder Bremen;;
+5;TSG Hoffenheim;Hamburger SV;;
+5;FC Augsburg;Bayern München;;
+5;1. FSV Mainz 05;Bayer 04 Leverkusen;;
+5;1. FC Union Berlin;SV Elversberg;;
+5;SC Paderborn 07;VfB Stuttgart;;
+5;RB Leipzig;Eintracht Frankfurt;;
+5;1. FC Köln;Borussia Mönchengladbach;;
+5;SC Freiburg;FC Schalke 04;;

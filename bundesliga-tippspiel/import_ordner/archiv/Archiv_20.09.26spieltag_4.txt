@@ -1,0 +1,3 @@
+4;Bayer 04 Leverkusen;RB Leipzig;2:0;2:1
+4;FC Schalke 04;SV Elversberg;;1:2
+4;SC Paderborn 07;1899 Hoffenheim;;1:2
