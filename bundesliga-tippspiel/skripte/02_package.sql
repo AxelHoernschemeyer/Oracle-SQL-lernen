@@ -62,6 +62,7 @@ CREATE OR REPLACE PACKAGE BODY bl_import_pkg AS
                 -- Erst JETZT verschieben
                 -- UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', v_filename);
                 UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', 'Archiv_' || TO_char(sysdate,'DD.MM.YYYY HH24:MI') || '_' || v_filename);
+                UTL_FILE.FRENAME('BL_IMPORT_DIR', v_filename, 'BL_ARCHIV_DIR', 'Archiv_' || sysdate || v_filename);
                 
             EXCEPTION
                 -- Falls die Datei nicht existiert oder FRENAME zickt, lautlos weitermachen
