@@ -10,11 +10,22 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 * **Image:** `gvenzl/oracle-free:latest`
 * **Datenbank-Tool:** DBeaver Community Edition
 
+---
+
+## 🗺️ Projekt-Wegweiser (Schnelleinstieg)
+
+Da das Repository wächst, sind die Inhalte sauber aufgeteilt:
+
+*   📖 **[SQL-Masterhandbuch (ORACLE_FUNKTIONEN.md)](ORACLE_FUNKTIONEN.md)**: Mein zentrales Lexikon für alle reinen SQL-Sprachfunktionen (Datentypen, Tabellendesign, Joins, Packages, Sequenzen).
+*   🛠️ **[Betriebshandbuch (ADMIN_UND_DOCKER.md)](ADMIN_UND_DOCKER.md)**: Das administrative Handbuch für Docker-Setups, User-Resets, Rechtevergaben (`GRANT`) und Notfall-Troubleshooting.
+*   📊 **[Praxis-Projekt: Bundesliga-Tippspiel](./bundesliga-tippspiel/)**: Meine vollautomatisierte Importschnittstelle via `DBMS_SCHEDULER`, `REGEXP_SUBSTR` und `MERGE INTO`.
+
+---
+
 ## 📁 Projektstruktur & Inhalt
 * `/skripte` - SQL-Dateien für Tabellenerstellung, Datenmanipulation und Abfragen
 * `ORACLE_FUNKTIONEN.md` - Mein persönliches Nachschlagewerk für SQL-Befehle, Datentypen und Funktionen
 * `GIT_NACHSCHLAGEWERK.md` - Cheat-Sheet für Mac-Terminal, Git-Workflows und Versionsverwaltungs-Begriffe
-
 
 ### Bereits umgesetzte Meilensteine:
 1. **Infrastruktur steht:** Oracle-Instanz via Docker auf dem Mac eingerichtet.
@@ -36,16 +47,17 @@ Dieses Repository dient zur Dokumentation und Sicherung meines Lernfortschritts 
 14. **Datumsarithmetik & Formatierung:** Komplexe Zeitberechnungen (`ADD_MONTHS`, `MONTHS_BETWEEN`) durchgeführt und Datums- und Uhrzeitwerte mittels `TO_CHAR` in europäische Anzeigeformate transformiert.
 15. **Bedingte Logik (Conditional Expressions):** Komplexe Transformationen und Werte-Klassifizierungen mittels `CASE WHEN` und `ELSE`-Fallbacks direkt in der Datenabfrage implementiert.
 16. **NULL-Value Handhabung:** Logische Abfragen zur Identifikation leerer Datenfelder (`IS NULL`) sowie Datenbereinigung und Standardwert-Zuweisung mittels `NVL` und `COALESCE` implementiert.
-16. **Mengenoperatoren (Set Operators):** Ergebnismengen strukturell unter Verwendung von `UNION` und `UNION ALL` kombiniert, Duplikatfilterungen analysiert und die Typprüfungsregeln von Oracle erfolgreich angewendet.
-17. **KPI-Dashboard verifiziert:** Das theoretische Dashboard-Szenario mittels `UNION ALL` erfolgreich live in der Docker-Datenbankumgebung getestet und Kennzahlen aggregiert.
-18. **Numerische Rundung:** Mathematische Formatierung von Kennzahlen mittels `ROUND` erlernt und erfolgreich in verschachtelte Aggregatberichte integriert.
-19. **Datentyp-Konvertierung (Type Casting):** Explizite Datentyp-Transformationen mittels `TO_CHAR`, `TO_NUMBER` und `TO_DATE` angewendet, um Datenformate für Berechnungen und kalendarische Filterungen zu harmonisieren.
-20. **Erweiterte Tabellen-Verknüpfungen:** Den Unterschied zwischen `INNER JOIN` und Outer Joins (`LEFT JOIN`, `RIGHT JOIN`) erlernt und eingesetzt, um unvollständige Datenbestände ohne Informationsverlust abzufragen.
-21. **Daten-Synchronisation (MERGE):** Den Oracle-spezifischen `MERGE INTO`-Befehl ("Upsert") implementiert, um bedingte Updates und Inserts in einem einzigen, performanten Schritt zu steuern.
-22. **Transaktionssteuerung (TCL):** Datenintegrität und Ausfallsicherheit durch Transaktions-Mechanismen (`COMMIT`, `ROLLBACK`) gesteuert und komplexe Rücksprungpunkte via `SAVEPOINT` erfolgreich implementiert.
-23. **Datenvalidierung (Constraints):** Fortgeschrittene Integritätsregeln (`NOT NULL`, `UNIQUE`, `CHECK`) integriert und das Datenmodell erfolgreich um eine statusbasierte Wertebereichsprüfung (`IN`-Operator) für Bestellprozesse erweitert.
-24. **Performance-Optimierung (Indexing):** Datenbank-Indices mittels `CREATE INDEX` zur Vermeidung von ressourcenintensiven Full Table Scans implementiert und die Trade-offs zwischen Lese- und Schreibgeschwindigkeit analysiert.
-25. **Fortgeschrittene Textmanipulation:** Komplexe Bereinigungs- und Suchoperationen auf Textstrukturen mittels `TRIM`, `REPLACE` und der Positionsanalyse durch `INSTR` erfolgreich implementiert.
+17. **Mengenoperatoren (Set Operators):** Ergebnismengen strukturell unter Verwendung von `UNION` und `UNION ALL` kombiniert, Duplikatfilterungen analysiert und die Typprüfungsregeln von Oracle erfolgreich angewendet.
+18. **KPI-Dashboard verifiziert:** Das theoretische Dashboard-Szenario mittels `UNION ALL` erfolgreich live in der Docker-Datenbankumgebung getestet und Kennzahlen aggregiert.
+19. **Numerische Rundung:** Mathematische Formatierung von Kennzahlen mittels `ROUND` erlernt und erfolgreich in verschachtelte Aggregatberichte integriert.
+20. **Datentyp-Konvertierung (Type Casting):** Explizite Datentyp-Transformationen mittels `TO_CHAR`, `TO_NUMBER` und `TO_DATE` angewendet, um Datenformate für Berechnungen und kalendarische Filterungen zu harmonisieren.
+21. **Erweiterte Tabellen-Verknüpfungen:** Den Unterschied zwischen `INNER JOIN` und Outer Joins (`LEFT JOIN`, `RIGHT JOIN`) erlernt und eingesetzt, um unvollständige Datenbestände ohne Informationsverlust abzufragen.
+22. **Daten-Synchronisation (MERGE):** Den Oracle-spezifischen `MERGE INTO`-Befehl ("Upsert") implementiert, um bedingte Updates und Inserts in einem einzigen, performanten Schritt zu steuern.
+23. **Transaktionssteuerung (TCL):** Datenintegrität und Ausfallsicherheit durch Transaktions-Mechanismen (`COMMIT`, `ROLLBACK`) gesteuert und komplexe Rücksprungpunkte via `SAVEPOINT` erfolgreich implementiert.
+24. **Datenvalidierung (Constraints):** Fortgeschrittene Integritätsregeln (`NOT NULL`, `UNIQUE`, `CHECK`) integriert und das Datenmodell erfolgreich um eine statusbasierte Wertebereichsprüfung (`IN`-Operator) für Bestellprozesse erweitert.
+25. **Performance-Optimierung (Indexing):** Datenbank-Indices mittels `CREATE INDEX` zur Vermeidung von ressourcenintensiven Full Table Scans implementiert und die Trade-offs zwischen Lese- und Schreibgeschwindigkeit analysiert.
+26. **Fortgeschrittene Textmanipulation:** Komplexe Bereinigungs- und Suchoperationen auf Textstrukturen mittels `TRIM`, `REPLACE` und der Positionsanalyse durch `INSTR` erfolgreich implementiert.
+27. **Enterprise-Automatisierung:** Eine PL/SQL-Importschnittstelle (`bl_import_pkg`) und vollautomatische Hintergrund-Jobs via `DBMS_SCHEDULER` aufgebaut, um Mac-Dateien im Minutentakt einzulesen und im System zu archivieren.
 
 ---
-*Fortsetzung folgt... Nächster Schritt: Komplexe Abfragen (SELECT, JOINs und Aggregationen).*
+*Fortsetzung folgt... Nächster Schritt: Lektion 21 – Unabhängige Nummernsysteme und fortgeschrittene Tabellenfeatures.*
