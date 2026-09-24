@@ -14,5 +14,10 @@ Das Projekt kombiniert klassisches relationales Datenbankdesign mit fortgeschrit
 2. **`02_package.sql`**: PL/SQL Package (`Specification` & `Body`) für die Verarbeitungslogik.
 3. **`03_scheduler.sql`**: Konfiguration des zeitgesteuerten Hintergrund-Jobs.
 
+### 🛠️ Technische Details & Dokumentation
+Die genauen SQL-Konzepte und administrativen Befehle, die in diesem Projekt genutzt werden, sind im Hauptverzeichnis dokumentiert:
+*   Die Logik der Punkteberechnung findest du im [SQL-Masterhandbuch (Kapitel 13: Virtuelle Spalten)](../ORACLE_FUNKTIONEN.md#13-virtuelle-spalten-virtual-columns).
+*   Die Befehle zum Freischalten von Ordnern und zum Job-Management findest du im [Betriebshandbuch (Kapitel 5: Troubleshooting)](../ADMIN_UND_DOCKER.md#5-package-and-job-troubleshooting).
+
 ---
 *Status: In Entwicklung 🛠️ (Teil 1: Tabellendesign läuft)*
