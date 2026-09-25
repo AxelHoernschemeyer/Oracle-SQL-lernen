@@ -20,7 +20,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 | **ALTER TABLE** | X Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
-| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
+| **CREATE VIEW** | X Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
 | **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
 | **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
 | **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
