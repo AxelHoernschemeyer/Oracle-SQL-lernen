@@ -20,7 +20,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 | **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
-| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view) |
+| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
 | **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
 | **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
 | **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
@@ -43,6 +43,45 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#13-virtuelle-spalten-virtual-columns) |
 
 ---
+| SQL-Befehl / Begriff | Kategorie / Zweck | Link zur Erklärung |
+| :--- | :--- | :--- |
+| **CREATE TABLE** | Tabelle neu anlegen | [Zur Erklärung](#tabellen-erstellen-create-table) |
+| **VARCHAR2 / NUMBER / DATE** | Datentypen für Spalten | [Zur Erklärung](#wichtige-datentypen-in-oracle) |
+| **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
+| **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
+| **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-dauerhaft-speichern-commit) |
+| **SELECT** | Daten auslesen | [Zur Erklärung](#daten-auslesen-select) |
+| **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
+| **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
+| **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
+| **SUM / AVG / COUNT** | Berechnungen & Statistiken | [Zur Erklärung](#aggregatfunktionen-berechnungen) |
+| **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
+| **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
+| **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
+| **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
+| **CREATE VIEW** | Virtuelle Tabelle anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
+| **Subqueries** | Unterabfragen | [Zur Erklärung](#unterabfragen-subqueries) |
+| **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
+| **|| (Doppelstrich)** | Texte verketten | [Zur Erklärung](#text-funktionen-strings) |
+| **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
+| **TO_CHAR (Datum)** | Datum formatieren | [Zur Erklärung](#datums-funktionen) |
+| **CASE WHEN** | Bedingte Logik | [Zur Erklärung](#bedingte-logik-case-when) |
+| **NVL / COALESCE** | NULL-Werte ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
+| **UNION / UNION ALL** | Ergebnisse stapeln | [Zur Erklärung](#mengen-operationen-set-operators) |
+| **ROUND** | Zahlen runden | [Zur Erklärung](#zahlen-runden-round) |
+| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen konvertieren | [Zur Erklärung](#datentyp-konvertierung-type-casting) |
+| **LEFT / RIGHT JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
+| **MERGE INTO** | Daten synchronisieren | [Zur Erklärung](#daten-synchronisieren-merge-into) |
+| **COMMIT / ROLLBACK** | Transaktionen steuern | [Zur Erklärung](#transaktionssteuerung-tcl) |
+| **NOT NULL / UNIQUE / CHECK** | Datenqualität sichern | [Zur Erklärung](#einschränkungen-constraints) |
+| **CREATE INDEX** | Abfragen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
+| **TRIM / REPLACE / INSTR** | Textbereinigung | [Zur Erklärung](#text-funktionen-strings) |
+| **CREATE PACKAGE** | Logik bündeln | [Zur Erklärung](#plsql-packages) |
+| **DBMS_SCHEDULER** | Automatische Jobs | [Zur Erklärung](#automatisierung-dbms_scheduler) |
+| **CREATE SEQUENCE** | Nummern-Generator | [Zur Erklärung](#sequenzen-sequence) |
+| **VIRTUAL COLUMN** | Automatische Berechnung | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
+
+
 
 ### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
 
@@ -668,8 +707,8 @@ CREATE TABLE produkte (
     preis_brutto NUMBER(10,2) GENERATED ALWAYS AS (preis_netto * 1.19) VIRTUAL
 );
 ```
-
 ### 2. Praxis-Beispiel: Tippspiel-Punkte berechnen (Komplexe CASE-Logik mit Datensäuberung)
+
 Wenn Daten aus Textdateien importiert werden, können unsichtbare Zeilenumbrüche (`CHR(10)` = Line Feed, `CHR(13)` = Carriage Return) mathematische Berechnungen blockieren. Da in virtuellen Spalten kein `REGEXP_REPLACE` erlaubt ist, säubert man die Strings hocheffizient mit verschachtelten `REPLACE`-Befehlen:
 
 ```sql
