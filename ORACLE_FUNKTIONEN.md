@@ -11,9 +11,9 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
 | **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
 | **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-dauerhaft-speichern-commit) |
-| **SELECT** | Daten auslesen | [Zur Erklärung](#daten-abfrage-select) |
+| **SELECT** | X Daten auslesen | [Zur Erklärung](#daten-abfrage-select) |
 | **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
-| **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
+| **WHERE** | X Daten filtern | [Zur Erklärung](#daten-filtern-where) |
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
 | **SUM / AVG / COUNT** | Berechnungen & Statistiken | [Zur Erklärung](#aggregatfunktionen-berechnungen) |
 | **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
