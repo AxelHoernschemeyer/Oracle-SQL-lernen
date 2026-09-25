@@ -10,47 +10,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **VARCHAR2 / NUMBER / DATE** | Datentypen für Spalten | [Zur Erklärung](#wichtige-datentypen-in-oracle) |
 | **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
 | **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
-| **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-einbrennen-commit) |
-| **SELECT** | Daten auslesen | [Zur Erklärung](#basis-abfrage-select) |
-| **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
-| **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
-| **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
-| **SUM / AVG / COUNT** | Berechnungen & Statistiken | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
-| **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
-| **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
-| **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
-| **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
-| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
-| **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
-| **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
-| **\|\| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
-| **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
-| **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
-| **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
-| **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
-| **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#-6-mengen-operationen-set-operators) |
-| **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
-| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#7-datentyp-konvertierung-type-casting) |
-| **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
-| **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
-| **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#8-transaktionssteuerung-tcl) |
-| **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
-| **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#datenbank-indices-performance) |
-| **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
-| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#10-plsql-packages) |
-| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbmsscheduler) |
-| **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#12-sequenzen-sequence) |
-| **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#13-virtuelle-spalten-virtual-columns) |
-
----
-| SQL-Befehl / Begriff | Kategorie / Zweck | Link zur Erklärung |
-| :--- | :--- | :--- |
-| **CREATE TABLE** | Tabelle neu anlegen | [Zur Erklärung](#tabellen-erstellen-create-table) |
-| **VARCHAR2 / NUMBER / DATE** | Datentypen für Spalten | [Zur Erklärung](#wichtige-datentypen-in-oracle) |
-| **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
-| **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
 | **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-dauerhaft-speichern-commit) |
-| **SELECT** | Daten auslesen | [Zur Erklärung](#daten-auslesen-select) |
+| **SELECT** | Daten auslesen | [Zur Erklärung](#daten-abfrage-select) |
 | **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
 | **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
@@ -59,29 +20,29 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
 | **ALTER TABLE** | Tabellenstruktur nachträglich ändern | [Zur Erklärung](#tabellenstruktur-ändern-alter-table) |
-| **CREATE VIEW** | Virtuelle Tabelle anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
-| **Subqueries** | Unterabfragen | [Zur Erklärung](#unterabfragen-subqueries) |
+| **CREATE VIEW** | Virtuelle Tabelle (gespeicherte Abfrage) anlegen | [Zur Erklärung](#ansichten-erstellen-create-view---profi-level) |
+| **Subqueries** | Unterabfragen in Klammern verschachteln | [Zur Erklärung](#unterabfragen-subqueries) |
 | **UPPER / LOWER** | Text in Groß-/Kleinschreibung wandeln | [Zur Erklärung](#text-funktionen-strings) |
-| **|| (Doppelstrich)** | Texte verketten | [Zur Erklärung](#text-funktionen-strings) |
+| **|| (Doppelstrich)** | Texte miteinander verketten | [Zur Erklärung](#text-funktionen-strings) |
 | **ADD_MONTHS / MONTHS_BETWEEN** | Mit Monaten rechnen | [Zur Erklärung](#datums-funktionen) |
-| **TO_CHAR (Datum)** | Datum formatieren | [Zur Erklärung](#datums-funktionen) |
-| **CASE WHEN** | Bedingte Logik | [Zur Erklärung](#bedingte-logik-case-when) |
-| **NVL / COALESCE** | NULL-Werte ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
-| **UNION / UNION ALL** | Ergebnisse stapeln | [Zur Erklärung](#mengen-operationen-set-operators) |
-| **ROUND** | Zahlen runden | [Zur Erklärung](#zahlen-runden-round) |
-| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen konvertieren | [Zur Erklärung](#datentyp-konvertierung-type-casting) |
-| **LEFT / RIGHT JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
-| **MERGE INTO** | Daten synchronisieren | [Zur Erklärung](#daten-synchronisieren-merge-into) |
-| **COMMIT / ROLLBACK** | Transaktionen steuern | [Zur Erklärung](#transaktionssteuerung-tcl) |
-| **NOT NULL / UNIQUE / CHECK** | Datenqualität sichern | [Zur Erklärung](#einschränkungen-constraints) |
-| **CREATE INDEX** | Abfragen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
-| **TRIM / REPLACE / INSTR** | Textbereinigung | [Zur Erklärung](#text-funktionen-strings) |
-| **CREATE PACKAGE** | Logik bündeln | [Zur Erklärung](#plsql-packages) |
-| **DBMS_SCHEDULER** | Automatische Jobs | [Zur Erklärung](#automatisierung-dbms_scheduler) |
-| **CREATE SEQUENCE** | Nummern-Generator | [Zur Erklärung](#sequenzen-sequence) |
-| **VIRTUAL COLUMN** | Automatische Berechnung | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
+| **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
+| **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
+| **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
+| **UNION / UNION ALL** | Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#mengen-operationen-set-operators) |
+| **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#zahlen-runden-round) |
+| **TO_CHAR / TO_NUMBER / TO_DATE** | Datentypen explizit konvertieren | [Zur Erklärung](#datentyp-konvertierung-type-casting) |
+| **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
+| **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
+| **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#transaktionssteuerung-tcl) |
+| **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
+| **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
+| **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
+| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#plsql-packages) |
+| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#automatisierung-dbms_scheduler) |
+| **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#sequenzen-sequence) |
+| **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
 
-
+---
 
 ### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
 
