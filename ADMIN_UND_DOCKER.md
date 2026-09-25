@@ -8,7 +8,7 @@ Dieses Betriebshandbuch dient als zentrales Nachschlagewerk für die Einrichtung
 | :--- | :--- | :--- |
 | **DOCKER CONTAINER** | Container löschen, neu anlegen und Mac-Ordner freigeben | [Zur Erklärung](#1-docker-und-umgebung-zurücksetzen) |
 | **USER MANAGEMENT** | Benutzer erstellen, Passwörter ändern und System-Rechte vergeben | [Zur Erklärung](#2-benutzer-administration) |
-| **PERMISSIONS** | Verzeichnis-Objekte (DIRECTORY) und Scheduler-Rechte freischalten | [Zur Erklärung](#3.-Verzeichnis--und-Job-Berechtigungen) |
+| **PERMISSIONS** | Verzeichnis-Objekte (DIRECTORY) und Scheduler-Rechte freischalten | [Zur Erklärung](#3-verzeichnis--und-job-berechtigungen) |
 | **IDENTITY RESET** | Auto-Increment-Zähler nach dem Leeren von Tabellen zurücksetzen | [Zur Erklärung](#4-identity-spalten-nach-truncate-zurucksetzen) |
 | **TROUBLESHOOTING** | Fehler-Logs auslesen, hängende Schleifen killen und Deadlocks lösen | [Zur Erklärung](#5-package-and-job-troubleshooting) |
 
