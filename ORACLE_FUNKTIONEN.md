@@ -40,7 +40,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **CREATE PACKAGE** | X Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#plsql-packages) |
 | **DBMS_SCHEDULER** | X Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#automatisierung-dbms_scheduler) |
 | **CREATE SEQUENCE** | X Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#sequenzen-sequence) |
-| **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
+| **VIRTUAL COLUMN** | X Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
 
 ---
 
