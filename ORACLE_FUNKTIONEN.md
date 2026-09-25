@@ -33,7 +33,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TO_CHAR / TO_NUMBER / TO_DATE** | X Datentypen explizit konvertieren | [Zur Erklärung](#datentyp-konvertierung-type-casting) |
 | **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
 | **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
-| **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#transaktionssteuerung-tcl) |
+| **COMMIT / ROLLBACK** | X Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
 | **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
