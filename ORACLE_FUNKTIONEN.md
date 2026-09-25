@@ -37,7 +37,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
 | **CREATE INDEX** | X Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
-| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#plsql-packages) |
+| **CREATE PACKAGE** | X Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#plsql-packages) |
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#automatisierung-dbms_scheduler) |
 | **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#sequenzen-sequence) |
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
