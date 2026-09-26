@@ -12,6 +12,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
 | **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-dauerhaft-speichern-commit) |
 | **SELECT** | X Daten auslesen | [Zur Erklärung](#daten-abfrage-select) |
+| **SELECT** | Daten auslesen | [Zur Erklärung](#3.-Datenabfrage-(DQL---Data-Query-Language) |
 | **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
 | **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
