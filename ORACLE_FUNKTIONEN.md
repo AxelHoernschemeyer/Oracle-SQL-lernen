@@ -15,7 +15,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
 | **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
-| **SUM / AVG / COUNT** | X Berechnungen & Statistiken | [Zur Erklärung](#aggregatfunktionen-berechnungen) |
+| **SUM / AVG / COUNT** | X Berechnungen & Statistiken | [Zur Erklärung](#-4-aggregatfunktionen-berechnungen) |
 | **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
