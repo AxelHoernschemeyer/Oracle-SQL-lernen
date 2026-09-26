@@ -683,12 +683,14 @@ ALTER TABLE bundesliga_tipps ADD (
             WHEN tipp = ergebnis THEN 4 
             
             -- 3. Tordifferenz stimmt bei Sieg/Niederlage -> 3 Punkte
-            WHEN TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, 1, INSTR(tipp, ':') - 1), CHR(10), ''), CHR(13), '')) - 
-                 TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, INSTR(tipp, ':') + 1), CHR(10), ''), CHR(13), '')) = 
-                 TO_NUMBER(REPLACE(REPLACE(SUBSTR(ergebnis, 1, INSTR(ergebnis, ':') - 1), CHR(10), ''), CHR(13), '')) - 
-                 TO_NUMBER(REPLACE(REPLACE(SUBSTR(ergebnis, INSTR(ergebnis, ':') + 1), CHR(10), ''), CHR(13), '')) 
-                 AND tipp <> ergebnis THEN 3 
-                 
+			WHEN TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, 1, INSTR(tipp, ':') - 1), CHR(10), ''), CHR(13), '')) - 
+     			 TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, INSTR(tipp, ':') + 1), CHR(10), ''), CHR(13), '')) = 
+     			 TO_NUMBER(REPLACE(REPLACE(SUBSTR(ergebnis, 1, INSTR(ergebnis, ':') - 1), CHR(10), ''), CHR(13), '')) - 
+				 TO_NUMBER(REPLACE(REPLACE(SUBSTR(ergebnis, INSTR(ergebnis, ':') + 1), CHR(10), ''), CHR(13), '')) 
+				 AND tipp <> ergebnis 
+     			 AND (TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, 1, INSTR(tipp, ':') - 1), CHR(10), ''), CHR(13), '')) - 
+          	     TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, INSTR(tipp, ':') + 1), CHR(10), ''), CHR(13), ''))) <> 0 THEN 3
+
             -- 4. Reine Tendenz stimmt bei Heimsieg -> 2 Punkte
             WHEN TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, 1, INSTR(tipp, ':') - 1), CHR(10), ''), CHR(13), '')) - 
                  TO_NUMBER(REPLACE(REPLACE(SUBSTR(tipp, INSTR(tipp, ':') + 1), CHR(10), ''), CHR(13), '')) > 0 
