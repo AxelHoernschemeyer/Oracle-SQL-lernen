@@ -74,7 +74,7 @@ CREATE TABLE Bestellungen
 	fk_kunde_id		NUMBER CONSTRAINT fk_kunden_Id REFERENCES kunden(kunde_id),
 	artikel_name	varchar2(50)
 	);
-``
+```
 ### Tabellenstruktur ändern (ALTER TABLE)
 Modifiziert die Architektur einer bereits existierenden Tabelle, ohne dass Daten gelöscht werden müssen.
 
