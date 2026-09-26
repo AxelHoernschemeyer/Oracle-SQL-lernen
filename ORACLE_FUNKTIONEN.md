@@ -11,11 +11,11 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
 | **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
 | **COMMIT** | Änderungen dauerhaft speichern | [Zur Erklärung](#änderungen-dauerhaft-speichern-commit) |
-| **SELECT** | X Daten auslesen | [Zur Erklärung](#daten-auslesen-select) |
+| **SELECT** | Daten auslesen | [Zur Erklärung](#daten-auslesen-select) |
 | **INNER JOIN** | Tabellen verknüpfen | [Zur Erklärung](#tabellen-verknüpfen-inner-join) |
 | **WHERE** | Daten filtern | [Zur Erklärung](#daten-filtern-where) |
 | **ORDER BY** | Ergebnisse sortieren | [Zur Erklärung](#daten-sortieren-order-by) |
-| **SUM / AVG / COUNT** | XBerechnungen & Statistiken | [Zur Erklärung](#aggregatfunktionen-berechnungen) |
+| **SUM / AVG / COUNT** | X Berechnungen & Statistiken | [Zur Erklärung](#4-aggregatfunktionen-berechnungen) |
 | **GROUP BY / HAVING** | Daten gruppieren & Gruppen filtern | [Zur Erklärung](#daten-gruppieren-group-by) |
 | **UPDATE** | Bestehende Daten ändern | [Zur Erklärung](#daten-ändern-update) |
 | **DELETE** | Daten dauerhaft löschen | [Zur Erklärung](#daten-löschen-delete) |
@@ -28,19 +28,19 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **TO_CHAR (Datum)** | Datum für die Anzeige formatieren | [Zur Erklärung](#datums-funktionen) |
 | **CASE WHEN** | Bedingte Logik (Wenn-Dann-Sonst) | [Zur Erklärung](#bedingte-logik-case-when) |
 | **NVL / COALESCE** | Fehlende Daten (NULL-Werte) ersetzen | [Zur Erklärung](#umgang-mit-null-werten) |
-| **UNION / UNION ALL** | X Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#mengen-operationen-set-operators) |
+| **UNION / UNION ALL** | X Abfrageergebnisse untereinanderstapeln | [Zur Erklärung](#6-mengen-operationen-set-operators) |
 | **ROUND** | Zahlen kaufmännisch runden | [Zur Erklärung](#zahlen-runden-round) |
-| **TO_CHAR / TO_NUMBER / TO_DATE** | X Datentypen explizit konvertieren | [Zur Erklärung](#datentyp-konvertierung-type-casting) |
+| **TO_CHAR / TO_NUMBER / TO_DATE** | X Datentypen explizit konvertieren | [Zur Erklärung](#datums-Funktionen) |
 | **LEFT / RIGHT JOIN** | Tabellen verknüpfen (inkl. unvollständiger Zeilen) | [Zur Erklärung](#tabellen-verknüpfen-teil-2-outer-joins) |
 | **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
-| **COMMIT / ROLLBACK** | X Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#transaktionssteuerung-tcl) |
+| **COMMIT / ROLLBACK** | X Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#8-transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
-| **CREATE INDEX** | X Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#performance-optimierung-indices) |
+| **CREATE INDEX** | X Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#9-performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
-| **CREATE PACKAGE** | X Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#plsql-packages) |
-| **DBMS_SCHEDULER** | X Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#automatisierung-dbms_scheduler) |
-| **CREATE SEQUENCE** | X Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#sequenzen-sequence) |
-| **VIRTUAL COLUMN** | X Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#virtuelle-spalten-virtual-columns) |
+| **CREATE PACKAGE** | X Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#10-PL-sql-ackages) |
+| **DBMS_SCHEDULER** | X Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
+| **CREATE SEQUENCE** | X Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#12-sequenzen-sequences) |
+| **VIRTUAL COLUMN** | X Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#13-virtuelle-spalten-virtual-columns) |
 
 ---
 
@@ -75,7 +75,7 @@ CREATE TABLE Bestellungen
 	artikel_name	varchar2(50)
 	);
 ``
-### Tabellenstruktur ändern (`ALTER TABLE`)
+### Tabellenstruktur ändern (ALTER TABLE)
 Modifiziert die Architektur einer bereits existierenden Tabelle, ohne dass Daten gelöscht werden müssen.
 
 ```sql
@@ -106,7 +106,7 @@ ALTER TABLE Kunden
 DROP COLUMN Telefon;
 ```
 
-### Ansichten erstellen (`CREATE VIEW`) - Profi-Level 🚀
+### Ansichten erstellen (CREATE VIEW) - Profi-Level 🚀
 Speichert eine SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten bei jedem Aufruf live aus.
 
 ```sql
