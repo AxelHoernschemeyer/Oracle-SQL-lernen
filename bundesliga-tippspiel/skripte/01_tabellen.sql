@@ -12,3 +12,15 @@ CREATE TABLE bundesliga_tipps
 
 COMMIT;
 
+-- ==========================================
+-- DYNAMISCHES DASHBOARD: PUNKTE & STATISTIK
+-- ==========================================
+CREATE OR REPLACE VIEW v_tippspiel_tabelle AS
+	SELECT   spieltag, 
+	         SUM(punkte) AS gewonnene_punkte,
+	         COUNT(CASE WHEN punkte = 4 THEN 1 END) AS exakte_tipps,
+	         COUNT(CASE WHEN punkte = 3 THEN 1 END) AS tordifferenz_treffer,
+	         COUNT(CASE WHEN punkte = 2 THEN 1 END) AS tendenz_treffer
+	FROM     bundesliga_tipps
+	GROUP BY spieltag
+	ORDER BY gewonnene_punkte DESC;
