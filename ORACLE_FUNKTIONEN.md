@@ -669,6 +669,7 @@ CREATE TABLE support_tickets (
 
 -- 3. Daten einfügen (ID wird automatisch gezogen)
 INSERT INTO support_tickets (problem) VALUES ('Systemfehler');
+```
 
 ## 📊 13. Virtuelle Spalten (Virtual Columns)
 
