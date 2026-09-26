@@ -35,7 +35,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
 | **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#-8-transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
-| **CREATE INDEX** | X Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#9-performance-optimierung-indices) |
+| **CREATE INDEX** | X Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#-9-performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 | **CREATE PACKAGE** | X Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#10-PL-sql-ackages) |
 | **DBMS_SCHEDULER** | X Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
