@@ -654,6 +654,22 @@ SELECT seq_rechnung.CURRVAL FROM dual;
 DROP SEQUENCE seq_rechnung;
 ```
 
+### 4. Sequenz als Standardwert in Tabellen einbetten (Klassischer Weg)
+Man kann eine eigenständige Sequenz direkt als `DEFAULT`-Wert an eine Tabellenspalte hängen. Dadurch wird ein automatisches Hochzählen ohne Identity-Spalte erzwungen:
+
+```sql
+-- 1. Unabhängigen Zähler erstellen
+CREATE SEQUENCE seq_ticket_id START WITH 1 INCREMENT BY 1;
+
+-- 2. Tabelle erstellen und Sequenz als DEFAULT einbinden
+CREATE TABLE support_tickets (
+    ticket_id   NUMBER DEFAULT seq_ticket_id.NEXTVAL PRIMARY KEY,
+    problem     VARCHAR2(100) NOT NULL
+);
+
+-- 3. Daten einfügen (ID wird automatisch gezogen)
+INSERT INTO support_tickets (problem) VALUES ('Systemfehler');
+
 ## 📊 13. Virtuelle Spalten (Virtual Columns)
 
 Eine virtuelle Spalte (`VIRTUAL COLUMN`) verbraucht keinen echten Speicherplatz auf der Festplatte. Ihr Wert wird von Oracle live in dem Moment berechnet, in dem ein `SELECT` ausgeführt wird.
