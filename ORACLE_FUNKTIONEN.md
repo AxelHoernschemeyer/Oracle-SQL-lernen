@@ -38,8 +38,8 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#-9-performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 | **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#-10-plsql-packages) |
-| **DBMS_SCHEDULER** | X Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
-| **CREATE SEQUENCE** | X Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#12-sequenzen-sequences) |
+| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
+| **CREATE SEQUENCE** | X Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-12-sequenzen-sequence) |
 | **VIRTUAL COLUMN** | X Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#13-virtuelle-spalten-virtual-columns) |
 
 ---
