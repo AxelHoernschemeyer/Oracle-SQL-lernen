@@ -42,6 +42,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-12-sequenzen-sequence) |
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-13-virtuelle-spalten-virtual-columns) |
 | **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-14-synonyme-synonym) |
+| **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-15-datenbank-indizes-index) |
 
 ---
 
@@ -790,3 +791,20 @@ DROP SYNONYM bl;
 -- Globales Synonym anlegen (Nur als SYSTEM/Admin möglich)
 CREATE OR REPLACE PUBLIC SYNONYM bundesliga FOR LERNEN.bundesliga_tipps;
 ```
+
+## ⚡ 15. Datenbank-Indizes (INDEX)
+
+Ein Index ist ein unsichtbares Stichwortverzeichnis im Hintergrund der Datenbank. Er verhindert langsame Vollprüfungen der gesamten Tabelle (Full Table Scan) und beschleunigt Suchabfragen (Index Scan).
+
+### 1. Index erstellen
+```sql
+-- Erstellt ein Verzeichnis für die Spalte heim_team
+CREATE INDEX idx_bl_heim_team ON bundesliga_tipps(heim_team);
+
+-- Abfragen mit passender WHERE-Klausel nutzen den Index jetzt vollautomatisch
+SELECT * FROM bundesliga_tipps WHERE heim_team = 'FC Bayern München';
+```
+
+### 2. Der Performance-Trade-off (Wichtig!)
+*   **Vorteil:** Beschleunigt `SELECT`-Suchabfragen massiv.
+*   **Nachteil:** Verlangsamt Schreiboperationen (`INSERT`, `UPDATE`, `DELETE`), da Oracle das Verzeichnis bei jeder Datenänderung im Hintergrund neu sortieren und mitschreiben muss. Kostet zusätzlichen Speicherplatz.
