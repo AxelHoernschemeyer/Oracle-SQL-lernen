@@ -834,3 +834,25 @@ BEGIN
 END;
 /
 ```
+
+### 2. Der Vorher-Nachher-Vergleich (UPDATE-Trigger mit :OLD und :NEW)
+Man kann Trigger gezielt auf die Änderung bestimmter Spalten ansetzen (`AFTER UPDATE OF spalte`). Über die magischen Zeiger `:OLD` und `:NEW` lässt sich der exakte Datenverlauf lückenlos protokollieren:
+
+```sql
+-- Trigger scharf schalten für spezifische Spaltenänderungen
+CREATE OR REPLACE TRIGGER trg_gehalt_ueberwachung
+AFTER UPDATE OF gehalt ON team_mitglieder
+FOR EACH ROW
+BEGIN
+    INSERT INTO team_log (nachricht)
+    VALUES ('Gehalt geändert für ' || :OLD.vorname || ' ' || :OLD.nachname || 
+            ' | Alt: ' || :OLD.gehalt || ' € | Neu: ' || :NEW.gehalt || ' €');
+END;
+/
+
+-- Ein Update auf das Gehalt...
+UPDATE team_mitglieder SET gehalt = 4800 WHERE nachname = 'Mustermann';
+
+-- ...erzeugt vollautomatisch diesen Log-Eintrag:
+-- "Gehalt geändert für Max Mustermann | Alt: 4000 € | Neu: 4800 €"
+```
