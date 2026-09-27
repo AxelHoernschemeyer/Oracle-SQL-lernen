@@ -41,6 +41,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
 | **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-12-sequenzen-sequence) |
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-13-virtuelle-spalten-virtual-columns) |
+| **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-14-synonyme-synonym) |
 
 ---
 
@@ -725,4 +726,21 @@ ALTER TABLE bundesliga_tipps ADD (
         END
     ) VIRTUAL
 );
+```
+## 👥 14. Synonyme (SYNONYM)
+
+Ein Synonym ist ein dauerhafter Spitzname (Alias) für ein Datenbank-Objekt (wie eine Tabelle oder eine View). Es bleibt permanent in der Datenbank gespeichert, bis es explizit gelöscht wird.
+
+### 1. Synonym erstellen (Spitznamen vergeben)
+```sql
+-- Erstellt ein dauerhaftes Kürzel für eine Tabelle
+CREATE OR REPLACE SYNONYM bl FOR bundesliga_tipps;
+
+-- Ab jetzt ist die Tabelle unter dem Kurznamen abrufbar
+SELECT * FROM bl;
+```
+
+### 2. Synonym löschen
+```sql
+DROP SYNONYM bl;
 ```
