@@ -139,6 +139,23 @@ SELECT    k.vorname,
 FROM      Kunden k
 INNER JOIN Bestellungen b ON b.kunden_id = k.kunden_id;
 ```
+
+### Sichten/Views mit Check Option (WITH CHECK OPTION)
+Standardmäßig kann man über veränderbare Views Daten in die echte Tabelle schreiben, die gar nicht den Filtern der View entsprechen (Daten-Schmuggel). Mit `WITH CHECK OPTION` wird ein digitaler Türsteher eingebaut: Oracle blockiert jedes `INSERT` oder `UPDATE`, das den `WHERE`-Filter der View verletzt, mit einem `ORA-01402`.
+
+```sql
+-- View mit integriertem Sicherheits-Schild erstellen
+CREATE OR REPLACE VIEW v_it_abteilung AS
+SELECT mitglied_id, vorname, nachname, gehalt, status, abteilung
+FROM team_mitglieder
+WHERE abteilung = 'IT'
+WITH CHECK OPTION CONSTRAINT chk_only_it;
+
+-- Dieser Schmuggel-Versuch fliegt krachend mit ORA-01402 auf:
+INSERT INTO v_it_abteilung (vorname, nachname, gehalt, status, abteilung) 
+VALUES ('Sarah', 'Müller', 4500, 'AKTIV', 'MARKETING');
+```
+
 * **`ORACLE_REPLACE`**: Überschreibt eine bestehende View gleichen Namens ohne vorheriges Löschen.
 * **Abfrage:** Eine View wird genau wie eine normale Tabelle via `SELECT * FROM view_name;` abgefragt.
 
