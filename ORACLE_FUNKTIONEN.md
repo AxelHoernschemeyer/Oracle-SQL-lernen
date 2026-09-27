@@ -744,3 +744,12 @@ SELECT * FROM bl;
 ```sql
 DROP SYNONYM bl;
 ```
+
+### 3. Private vs. Öffentliche Synonyme
+*   **Privat (Standard):** Gilt nur für den aktuellen Benutzer, der es erstellt hat. Es wohnt im eigenen Schema.
+*   **Öffentlich (PUBLIC):** Wird von einem Admin global für die gesamte Datenbank angelegt. Alle Benutzer können das Objekt über diesen Spitznamen direkt aufrufen (Beispiel: Die Systemtabelle `dual`).
+
+```sql
+-- Globales Synonym anlegen (Nur als SYSTEM/Admin möglich)
+CREATE OR REPLACE PUBLIC SYNONYM bundesliga FOR LERNEN.bundesliga_tipps;
+```
