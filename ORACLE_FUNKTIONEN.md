@@ -490,6 +490,26 @@ UNION
 SELECT Nachname, Nachname FROM Kunden;
 ```
 
+### INTERSECT (Schnittmenge)
+Liefert nur die Datensätze zurück, die in **beiden** Abfragen exakt identisch vorkommen. Perfekt, um Gemeinsamkeiten oder Dubletten zu finden.
+
+```sql
+-- Welche Vornamen existieren sowohl bei Kunden als auch bei Mitarbeitern?
+SELECT vorname FROM kunden
+INTERSECT
+SELECT vorname FROM team_mitglieder;
+```
+
+### MINUS (Differenzmenge)
+Zieht die Ergebnisse der zweiten Abfrage von der ersten Abfrage ab. Liefert nur die Datensätze der *oberen* Liste, die in der *unteren* Liste *nicht* existieren.
+
+```sql
+-- Welche Kunden-Vornamen sind KEINE Mitarbeiter-Vornamen?
+SELECT vorname FROM kunden
+MINUS
+SELECT vorname FROM team_mitglieder;
+```
+
 *(Hinweis: `DUAL` ist eine von Oracle fest eingebaute Mini-Tabelle mit nur einer Zeile, die man für Berechnungen oder fixe Werte ohne echte Tabelle nutzen kann).*
 
 ---
