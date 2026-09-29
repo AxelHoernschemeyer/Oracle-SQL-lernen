@@ -796,6 +796,20 @@ WHERE platz_am_spieltag = 1
 ORDER BY spieltag;
 ```
 
+### 3. Fortlaufende Gesamtsumme (Running Total)
+Wenn man innerhalb von `OVER()` ein `ORDER BY` verwendet, berechnet Oracle die Summe nicht auf einmal, sondern wandert Zeile für Zeile von oben nach unten und baut eine fortlaufende Gesamtsumme (wie einen Kontoauszug) auf:
+
+```sql
+-- Berechnet das mitlaufende Punktekonto über die Spieltage hinweg
+SELECT spieltag,
+       SUM(punkte) AS punkte_am_spieltag,
+       -- Das äußere SUM() OVER() baut die fortlaufende Kette auf
+       SUM(SUM(punkte)) OVER(ORDER BY spieltag ASC) AS mein_mitlaufendes_punktekonto
+FROM bundesliga_tipps
+GROUP BY spieltag
+ORDER BY spieltag ASC;
+```
+
 ## 👥 15. Synonyme (SYNONYM)
 
 Ein Synonym ist ein dauerhafter Spitzname (Alias) für ein Datenbank-Objekt (wie eine Tabelle oder eine View). Es bleibt permanent in der Datenbank gespeichert, bis es explizit gelöscht wird.
