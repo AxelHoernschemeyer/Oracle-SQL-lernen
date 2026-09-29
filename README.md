@@ -19,6 +19,7 @@ Da das Repository wächst, sind die Inhalte sauber aufgeteilt:
 *   📖 **[SQL-Masterhandbuch (ORACLE_FUNKTIONEN.md)](ORACLE_FUNKTIONEN.md)**: Mein zentrales Lexikon für alle reinen SQL-Sprachfunktionen (Datentypen, Tabellendesign, Joins, Packages, Sequenzen).
 *   🛠️ **[Betriebshandbuch (ADMIN_UND_DOCKER.md)](ADMIN_UND_DOCKER.md)**: Das administrative Handbuch für Docker-Setups, User-Resets, Rechtevergaben (`GRANT`) und Notfall-Troubleshooting.
 *   📊 **[Praxis-Projekt: Bundesliga-Tippspiel](./bundesliga-tippspiel/)**: Meine vollautomatisierte Importschnittstelle via `DBMS_SCHEDULER`, `REGEXP_SUBSTR` und `MERGE INTO`.
+*   🗺️ **[DBeaver-Spickzettel (DBEAVER_SPICKZETTEL.md)](DBEAVER_SPICKZETTEL.md)**: Die nützlichsten Shortcuts (z.B. Zeilen duplizieren) und Tool-Tricks für DBeaver unter macOS.
 
 ---
 
