@@ -41,9 +41,10 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
 | **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-12-sequenzen-sequence) |
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-13-virtuelle-spalten-virtual-columns) |
-| **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-14-synonyme-synonym) |
-| **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-15-datenbank-indizes-index) |
-| **CREATE TRIGGER** | Automatische Aktionen (Reaktionen) bei Datenänderungen im Hintergrund auslösen | [Zur Erklärung](#-16-datenbank-trigger-trigger) |
+| **ROW_NUMBER / RANK** | Analytische Funktionen (Window Functions) für Ranglisten ohne GROUP BY | [Zur Erklärung](#-14-analytische-funktionen-window-functions) |
+| **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-15-synonyme-synonym) |
+| **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-16-datenbank-indizes-index) |
+| **CREATE TRIGGER** | Automatische Aktionen (Reaktionen) bei Datenänderungen im Hintergrund auslösen | [Zur Erklärung](#-17-datenbank-trigger-trigger) |
 
 ---
 
@@ -766,7 +767,36 @@ ALTER TABLE bundesliga_tipps ADD (
     ) VIRTUAL
 );
 ```
-## 👥 14. Synonyme (SYNONYM)
+## 🪟 14. Analytische Funktionen (Window Functions)
+
+Analytische Funktionen führen Berechnungen über eine Gruppe von Zeilen durch (ein "Fenster"), behalten aber im Gegensatz zu `GROUP BY` jede einzelne Zeile der Tabelle in der Ausgabe bei. Das Herzstück ist die `OVER()`-Klausel.
+
+### 1. Der Unterschied zwischen ROW_NUMBER() und RANK()
+*   **`ROW_NUMBER()`**: Nummeriert Zeilen stumpf fortlaufend durch (keine doppelten Platzierungen bei Wertegleichheit).
+*   **`RANK()`**: Vergibt echte sportliche Platzierungen. Bei gleichen Werten gibt es denselben Platz, der darauffolgende Platz wird übersprungen.
+
+```sql
+SELECT heim_team, gast_team, punkte,
+       ROW_NUMBER() OVER(ORDER BY punkte DESC) AS sture_nummer,
+       RANK() OVER(ORDER BY punkte DESC) AS sportliche_platzierung
+FROM bundesliga_tipps;
+```
+
+### 2. Trennwände einziehen mit PARTITION BY
+Mit `PARTITION BY` wird die Berechnung für bestimmte Gruppen isoliert. Der Zähler startet bei jedem Wechsel der Gruppe automatisch wieder frisch bei 1.
+
+```sql
+-- Zeigt den jeweils besten Tipp pro Spieltag an
+SELECT * FROM (
+    SELECT spieltag, heim_team, gast_team, punkte,
+           RANK() OVER(PARTITION BY spieltag ORDER BY punkte DESC) AS platz_am_spieltag
+    FROM bundesliga_tipps
+)
+WHERE platz_am_spieltag = 1
+ORDER BY spieltag;
+```
+
+## 👥 15. Synonyme (SYNONYM)
 
 Ein Synonym ist ein dauerhafter Spitzname (Alias) für ein Datenbank-Objekt (wie eine Tabelle oder eine View). Es bleibt permanent in der Datenbank gespeichert, bis es explizit gelöscht wird.
 
@@ -793,7 +823,7 @@ DROP SYNONYM bl;
 CREATE OR REPLACE PUBLIC SYNONYM bundesliga FOR LERNEN.bundesliga_tipps;
 ```
 
-## ⚡ 15. Datenbank-Indizes (INDEX)
+## ⚡ 16. Datenbank-Indizes (INDEX)
 
 Ein Index ist ein unsichtbares Stichwortverzeichnis im Hintergrund der Datenbank. Er verhindert langsame Vollprüfungen der gesamten Tabelle (Full Table Scan) und beschleunigt Suchabfragen (Index Scan).
 
@@ -810,7 +840,7 @@ SELECT * FROM bundesliga_tipps WHERE heim_team = 'FC Bayern München';
 *   **Vorteil:** Beschleunigt `SELECT`-Suchabfragen massiv.
 *   **Nachteil:** Verlangsamt Schreiboperationen (`INSERT`, `UPDATE`, `DELETE`), da Oracle das Verzeichnis bei jeder Datenänderung im Hintergrund neu sortieren und mitschreiben muss. Kostet zusätzlichen Speicherplatz.
 
-## ⚡ 16. Datenbank-Trigger (TRIGGER)
+## ⚡ 17. Datenbank-Trigger (TRIGGER)
 
 Ein Trigger ist ein automatisiertes PL/SQL-Skript, das fest an eine Tabelle gekettet ist. Es reagiert nach dem Prinzip "Aktion & Reaktion" vollautomatisch im Hintergrund, sobald ein `INSERT`, `UPDATE` oder `DELETE` auf der Tabelle ausgeführt wird.
 
