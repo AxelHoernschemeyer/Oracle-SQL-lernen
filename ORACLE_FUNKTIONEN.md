@@ -781,6 +781,21 @@ SELECT heim_team, gast_team, punkte,
        RANK() OVER(ORDER BY punkte DESC) AS sportliche_platzierung
 FROM bundesliga_tipps;
 ```
+### 1b. Fortgeschrittene Kombination: RANK() mit Aggregatfunktionen (SUM)
+Wenn man Kunden nach ihrem Gesamtumsatz platzieren möchte, muss das `SUM()` direkt in die `OVER(ORDER BY...)`-Klausel integriert werden. Die Klammer hinter `RANK()` bleibt dabei zwingend leer, da das Sortierkriterium ausschließlich im fliegenden Fenster definiert wird.
+
+```sql
+SELECT k.kunde_id, 
+       k.vorname, 
+       k.nachname, 
+       SUM(p.preis_brutto) AS gesamt_umsatz_brutto,
+       -- Wichtig: RANK() bleibt leer, das SUM() steht im ORDER BY der OVER-Klausel
+       RANK() OVER(ORDER BY SUM(p.preis_brutto) DESC) AS umsatz_platz
+FROM kunden k
+JOIN bestellungen b ON k.kunde_id = b.fk_kunde_id
+JOIN produkte p     ON b.artikel_name = p.name
+GROUP BY k.kunde_id, k.vorname, k.nachname;
+```
 
 ### 2. Trennwände einziehen mit PARTITION BY
 Mit `PARTITION BY` wird die Berechnung für bestimmte Gruppen isoliert. Der Zähler startet bei jedem Wechsel der Gruppe automatisch wieder frisch bei 1.
@@ -795,6 +810,16 @@ SELECT * FROM (
 WHERE platz_am_spieltag = 1
 ORDER BY spieltag;
 ```
+
+-- Beispiel 2: Support-Tickets nach Status gruppieren und fortlaufend nach Alter (ID) platzieren
+```sql
+SELECT ticket_id,
+       problem,
+       status,
+       -- Trennwand nach Status, Sortierung nach ID innerhalb der Gruppe
+       RANK() OVER(PARTITION BY status ORDER BY ticket_id ASC) AS ticket_rang_pro_status
+FROM support_tickets;
+``
 
 ### 3. Fortlaufende Gesamtsumme (Running Total)
 Wenn man innerhalb von `OVER()` ein `ORDER BY` verwendet, berechnet Oracle die Summe nicht auf einmal, sondern wandert Zeile für Zeile von oben nach unten und baut eine fortlaufende Gesamtsumme (wie einen Kontoauszug) auf:
