@@ -206,6 +206,8 @@ COMMIT;
 ```
 
 -- Phase 3: Sicherheits-Schloss aktivieren (Foreign Key Constraint anlegen)
+   Wichtig: 'fk_bestell_produkte' ist in diesem Beispiel der Name des Schlüssels und kein
+   Feld.
 ```sql
 ALTER TABLE bestellungen 
 ADD CONSTRAINT fk_bestell_produkte 
