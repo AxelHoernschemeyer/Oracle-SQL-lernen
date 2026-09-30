@@ -194,18 +194,24 @@ ALTER TABLE bestellungen ADD CONSTRAINT chk_status_gueltig CHECK (status IN ('of
 -- Wenn eine Tabelle im laufenden Betrieb von einer fehleranfälligen Text-Verknüpfung auf ein sicheres ID-System umgestellt werden soll, erfolgt der Umbau immer in drei getrennten Phasen, um ORA-02298 (Validierungsfehler) zu vermeiden:
 
 -- Phase 1: Neue ID-Spalte in der Untertabelle vorbereiten
+```sql
 ALTER TABLE bestellungen ADD fk_produkt_id NUMBER;
+```
 
 -- Phase 2: Datenmigration (Alte Textbeziehungen durch echte IDs ersetzen)
+```sql
 UPDATE bestellungen SET fk_produkt_id = 1 WHERE artikel_name = 'Lernbuch Oracle SQL';
 UPDATE bestellungen SET fk_produkt_id = 2 WHERE artikel_name = 'MacBook Pro';
 COMMIT;
+```
 
 -- Phase 3: Sicherheits-Schloss aktivieren (Foreign Key Constraint anlegen)
+```sql
 ALTER TABLE bestellungen 
 ADD CONSTRAINT fk_bestell_produkte 
 FOREIGN KEY (fk_produkt_id) 
 REFERENCES produkte(produkt_id);
+```
 
 ### 📥 2. Datenmanipulation (DML - Data Manipulation Language)
 
