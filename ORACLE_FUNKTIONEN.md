@@ -110,6 +110,23 @@ ALTER TABLE Kunden
 DROP COLUMN Telefon;
 ```
 
+### Wichtiger Fallstrick: Nachträgliche DEFAULT-Spalten & Altdaten
+Wenn eine Spalte nachträglich mit einem `DEFAULT`-Wert eingefügt wird, füllt Oracle die bestehenden Zeilen automatisch mit diesem Wert (z. B. dem aktuellen `SYSDATE`), um Speicherplatz auf der Festplatte zu sparen. 
+
+Wenn Altdaten bei der Migration zwingend leer (`NULL`) bleiben sollen, muss das Hinzufügen und das Aktivieren des Autopiloten in zwei separate Schritte aufgeteilt werden:
+
+```sql
+-- FALSCH (Füllt alle alten Zeilen automatisch mit dem aktuellen Datum):
+ALTER TABLE bestellungen ADD bestellt_am DATE DEFAULT sysdate;
+
+-- RICHTIG (Altdaten bleiben garantiert unangetastet auf NULL):
+-- 1. Spalte nackt anlegen
+ALTER TABLE bestellungen ADD bestellt_am DATE;
+-- 2. Autopilot NUR für zukünftige Datensätze aktivieren
+ALTER TABLE bestellungen MODIFY bestellt_am DEFAULT sysdate;
+```
+
+
 ### Ansichten erstellen (CREATE VIEW) - Profi-Level 🚀
 Speichert eine SQL-Abfrage als virtuelle Tabelle ab. Sie verbraucht keinen eigenen Daten-Speicherplatz, sondern liest die Basisdaten bei jedem Aufruf live aus.
 
