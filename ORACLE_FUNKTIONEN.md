@@ -466,10 +466,11 @@ SELECT produkt,
 FROM bestellungen;
 ```
 
+```sql
 -- Praxis-Beispiel: Lieferzeit in Tagen berechnen und aufrunden
 -- In Oracle ergibt (Datum - Datum) die Differenz in Tagen als Dezimalzahl.
 -- CEIL() rundet jede Nachkommazahl sofort auf den nächsten vollen Tag auf.
-```sql
+
 SELECT b.bestell_id,
        p.name,
        CEIL(b.versendet_am - b.bestellt_am) AS lieferzeit_tage
