@@ -466,6 +466,17 @@ SELECT produkt,
 FROM bestellungen;
 ```
 
+-- Praxis-Beispiel: Lieferzeit in Tagen berechnen und aufrunden
+-- In Oracle ergibt (Datum - Datum) die Differenz in Tagen als Dezimalzahl.
+-- CEIL() rundet jede Nachkommazahl sofort auf den nächsten vollen Tag auf.
+```sql
+SELECT b.bestell_id,
+       p.name,
+       CEIL(b.versendet_am - b.bestellt_am) AS lieferzeit_tage
+FROM   bestellungen b 
+INNER JOIN produkte p ON p.produkt_id = b.fk_produkt_id;
+```
+
 ### Bedingte Logik (`CASE WHEN`)
 Erlaubt es, "If-Then-Else"-Logik direkt in SQL-Abfragen zu integrieren, um Werte dynamisch zu kategorisieren oder zu transformieren.
 
