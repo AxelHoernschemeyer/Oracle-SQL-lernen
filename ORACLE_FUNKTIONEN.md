@@ -956,5 +956,31 @@ END;
 UPDATE team_mitglieder SET gehalt = 4800 WHERE nachname = 'Mustermann';
 
 -- ...erzeugt vollautomatisch diesen Log-Eintrag:
+
+### 3. Validierungs-Trigger mit Fehlermeldung (BEFORE UPDATE)
+Ein `BEFORE UPDATE`-Trigger kann Daten vor dem eigentlichen Speichern prüfen. Erfüllen die neuen Werte (`:NEW`) eine Bedingung nicht, wird die gesamte Transaktion mit `raise_application_error` abgebrochen und eine eigene Fehlermeldung auf den Bildschirm geworfen.
+
+```sql
+-- Trigger scharf schalten (Prüft die Lieferzeit vor dem Speichern)
+CREATE OR REPLACE TRIGGER trg_lieferzeit_warnung
+BEFORE UPDATE ON bestellungen 
+FOR EACH ROW
+BEGIN
+    -- Wenn die Differenz zwischen Versand und Bestellung größer als 3 Tage ist:
+    IF (:NEW.versendet_am - :NEW.bestellt_am) > 3 THEN
+       raise_application_error(-20001, 'ALARM: Lieferzeit ueberschreitet 3 Tage! Versand blockiert.');
+    END IF;
+END;
+/
+
+-- Ein schlampiger Mitarbeiter versucht ein unzulässiges Versanddatum einzutragen:
+UPDATE bestellungen 
+SET    versendet_am = TO_DATE('07.10.2026 14:20:00', 'DD.MM.YYYY HH24:MI:SS') 
+WHERE  bestell_id = 58;
+
+-- ERGEBNIS: Oracle bricht das Update ab und wirft:
+-- "ORA-20001: ALARM: Lieferzeit ueberschreitet 3 Tage! Versand blockiert."
+```
+
 -- "Gehalt geändert für Max Mustermann | Alt: 4000 € | Neu: 4800 €"
 ```
