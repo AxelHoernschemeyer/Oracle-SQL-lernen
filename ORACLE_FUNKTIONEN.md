@@ -6,7 +6,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 
 | SQL-Befehl / Begriff | Kategorie / Zweck | Link zur Erklärung |
 | :--- | :--- | :--- |
-| **CREATE TABLE** | Tabelle neu anlegen | [Zur Erklärung](#tabellen-erstellen-create-table) |
+| **CREATE TABLE** | Tabelle neu anlegen | [Zur Erklärung](#1-tabellen-erstellen-create-table) |
 | **VARCHAR2 / NUMBER / DATE** | Datentypen für Spalten | [Zur Erklärung](#wichtige-datentypen-in-oracle) |
 | **PRIMARY / FOREIGN KEY** | Schlüssel & Beziehungen | [Zur Erklärung](#einschränkungen-constraints) |
 | **INSERT INTO** | Neue Daten einfügen | [Zur Erklärung](#daten-einfügen-insert) |
