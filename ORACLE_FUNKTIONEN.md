@@ -912,7 +912,7 @@ SELECT * FROM bundesliga_tipps WHERE heim_team = 'FC Bayern München';
 *   **Vorteil:** Beschleunigt `SELECT`-Suchabfragen massiv.
 *   **Nachteil:** Verlangsamt Schreiboperationen (`INSERT`, `UPDATE`, `DELETE`), da Oracle das Verzeichnis bei jeder Datenänderung im Hintergrund neu sortieren und mitschreiben muss. Kostet zusätzlichen Speicherplatz.
 
-## ⚡ 16. Datenbank-Trigger (TRIGGER)
+## ⚙️ 16. Datenbank-Trigger (TRIGGER)
 
 Ein Trigger ist ein automatisiertes PL/SQL-Skript, das fest an eine Tabelle gekettet ist. Es reagiert nach dem Prinzip "Aktion & Reaktion" vollautomatisch im Hintergrund, sobald ein `INSERT`, `UPDATE` oder `DELETE` auf der Tabelle ausgeführt wird.
 
@@ -956,6 +956,8 @@ END;
 UPDATE team_mitglieder SET gehalt = 4800 WHERE nachname = 'Mustermann';
 
 -- ...erzeugt vollautomatisch diesen Log-Eintrag:
+-- "Gehalt geändert für Max Mustermann | Alt: 4000 € | Neu: 4800 €"
+```
 
 ### 3. Validierungs-Trigger mit Fehlermeldung (BEFORE UPDATE)
 Ein `BEFORE UPDATE`-Trigger kann Daten vor dem eigentlichen Speichern prüfen. Erfüllen die neuen Werte (`:NEW`) eine Bedingung nicht, wird die gesamte Transaktion mit `raise_application_error` abgebrochen und eine eigene Fehlermeldung auf den Bildschirm geworfen.
@@ -982,5 +984,3 @@ WHERE  bestell_id = 58;
 -- "ORA-20001: ALARM: Lieferzeit ueberschreitet 3 Tage! Versand blockiert."
 ```
 
--- "Gehalt geändert für Max Mustermann | Alt: 4000 € | Neu: 4800 €"
-```
