@@ -35,7 +35,6 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **MERGE INTO** | Daten synchronisieren (Update oder Insert) | [Zur Erklärung](#daten-synchronisieren-merge-into) |
 | **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#-8-transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
-| **CREATE INDEX** | Abfragen bei großen Datenmengen beschleunigen | [Zur Erklärung](#-9-performance-optimierung-indices) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#text-funktionen-strings) |
 | **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#-10-plsql-packages) |
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
@@ -48,11 +47,10 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 
 ---
 
-### 🛠️ 1. Datendefinition (DDL - Data Definition Language)
+## 🛠 I. Datendefinition (DDL - Data Definition Language)
 
-### Tabellen erstellen (CREATE TABLE)
-
-Erstellt eine neue Struktur in der Datenbank. 
+### 1. Tabellen erstellen (CREATE TABLE)
+Erstellt eine neue Struktur in der Datenbank mit grundlegenden Beispielen für Tabellen und Fremdschlüsselbeziehungen.
 
 ```sql
 CREATE TABLE tabellen_name (
@@ -634,26 +632,7 @@ DELETE FROM bestellungen; -- Tabelle leer
 ROLLBACK;                 -- Daten wieder da!
 ```
 
-## ⚡ 9. Performance-Optimierung (Indices)
-
-Indices fungieren als Stichwortverzeichnis für Tabellen, um Suchanfragen (`SELECT` mit `WHERE`) massiv zu beschleunigen.
-
-*   **`CREATE INDEX`**: Erstellt ein neues Suchverzeichnis für eine oder mehrere Spalten.
-*   **Automatische Indices:** Oracle indiziert Spalten mit `PRIMARY KEY` oder `UNIQUE` automatisch.
-
-```sql
--- Syntax
-CREATE INDEX index_name ON tabellen_name(spalten_name);
-
--- Praxis-Beispiel (Index auf häufig genutztes Filterfeld)
-CREATE INDEX idx_kunden_nachname ON kunden(nachname);
-```
-
-### ⚠️ Abwägung im Alltag:
-*   **Vorteil:** Drastische Beschleunigung von Lesezugriffen.
-*   **Nachteil:** Verlangsamt Schreibzugriffe (`INSERT`, `UPDATE`, `DELETE`), da der Index bei jeder Änderung neu berechnet werden muss. Kostet zusätzlichen Festplattenspeicher.
-
-## 📦 10. PL/SQL Packages
+## 📦 9. PL/SQL Packages
 
 Ein Package bündelt zusammengehörige Prozeduren, Funktionen und Variablen in einem gemeinsamen Container. Es besteht immer aus zwei Teilen:
 
@@ -684,7 +663,7 @@ END;
 /
 ```
 
-## 11. Automatisierung (DBMS_SCHEDULER)
+## 10. Automatisierung (DBMS_SCHEDULER)
 
 Mit dem Oracle Scheduler lassen sich PL/SQL-Blöcke oder Packages zeitgesteuert und vollautomatisch im Hintergrund der Datenbank ausführen.
 
@@ -709,7 +688,7 @@ EXEC DBMS_SCHEDULER.RUN_JOB('mein_hintergrund_job');
 EXEC DBMS_SCHEDULER.DROP_JOB('mein_hintergrund_job');
 ```
 
-## 🔢 12. Sequenzen (SEQUENCE)
+## 🔢 11. Sequenzen (SEQUENCE)
 
 Eine Sequenz ist ein unabhängiger Nummern-Generator in der Datenbank, der unabhängig von Tabellen fortlaufende Zahlen erzeugt.
 
@@ -766,7 +745,7 @@ CREATE TABLE support_tickets (
 INSERT INTO support_tickets (problem) VALUES ('Systemfehler');
 ```
 
-## 📊 13. Virtuelle Spalten (Virtual Columns)
+## 📊 12. Virtuelle Spalten (Virtual Columns)
 
 Eine virtuelle Spalte (`VIRTUAL COLUMN`) verbraucht keinen echten Speicherplatz auf der Festplatte. Ihr Wert wird von Oracle live in dem Moment berechnet, in dem ein `SELECT` ausgeführt wird.
 
@@ -821,7 +800,7 @@ ALTER TABLE bundesliga_tipps ADD (
     ) VIRTUAL
 );
 ```
-## 🪟 14. Analytische Funktionen (Window Functions)
+## 🪟 13. Analytische Funktionen (Window Functions)
 
 Analytische Funktionen führen Berechnungen über eine Gruppe von Zeilen durch (ein "Fenster"), behalten aber im Gegensatz zu `GROUP BY` jede einzelne Zeile der Tabelle in der Ausgabe bei. Das Herzstück ist die `OVER()`-Klausel.
 
@@ -889,7 +868,7 @@ GROUP BY spieltag
 ORDER BY spieltag ASC;
 ```
 
-## 👥 15. Synonyme (SYNONYM)
+## 👥 14. Synonyme (SYNONYM)
 
 Ein Synonym ist ein dauerhafter Spitzname (Alias) für ein Datenbank-Objekt (wie eine Tabelle oder eine View). Es bleibt permanent in der Datenbank gespeichert, bis es explizit gelöscht wird.
 
@@ -916,7 +895,7 @@ DROP SYNONYM bl;
 CREATE OR REPLACE PUBLIC SYNONYM bundesliga FOR LERNEN.bundesliga_tipps;
 ```
 
-## ⚡ 16. Datenbank-Indizes (INDEX)
+## ⚡ 15. Datenbank-Indizes (INDEX)
 
 Ein Index ist ein unsichtbares Stichwortverzeichnis im Hintergrund der Datenbank. Er verhindert langsame Vollprüfungen der gesamten Tabelle (Full Table Scan) und beschleunigt Suchabfragen (Index Scan).
 
@@ -933,7 +912,7 @@ SELECT * FROM bundesliga_tipps WHERE heim_team = 'FC Bayern München';
 *   **Vorteil:** Beschleunigt `SELECT`-Suchabfragen massiv.
 *   **Nachteil:** Verlangsamt Schreiboperationen (`INSERT`, `UPDATE`, `DELETE`), da Oracle das Verzeichnis bei jeder Datenänderung im Hintergrund neu sortieren und mitschreiben muss. Kostet zusätzlichen Speicherplatz.
 
-## ⚡ 17. Datenbank-Trigger (TRIGGER)
+## ⚡ 16. Datenbank-Trigger (TRIGGER)
 
 Ein Trigger ist ein automatisiertes PL/SQL-Skript, das fest an eine Tabelle gekettet ist. Es reagiert nach dem Prinzip "Aktion & Reaktion" vollautomatisch im Hintergrund, sobald ein `INSERT`, `UPDATE` oder `DELETE` auf der Tabelle ausgeführt wird.
 
