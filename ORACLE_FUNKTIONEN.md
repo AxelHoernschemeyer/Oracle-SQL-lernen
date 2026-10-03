@@ -36,14 +36,14 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **COMMIT / ROLLBACK** | Transaktionen steuern (Sicherheitsnetz) | [Zur Erklärung](#-8-transaktionssteuerung-tcl) |
 | **NOT NULL / UNIQUE / CHECK** | Datenqualität durch Regeln erzwingen | [Zur Erklärung](#einschränkungen-constraints) |
 | **TRIM / REPLACE / INSTR** | Fortgeschrittene Textbereinigung und Suche | [Zur Erklärung](#umgang-mit-null-werten) |
-| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#-10-plsql-packages) |
-| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#11-automatisierung-dbms_scheduler) |
-| **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-12-sequenzen-sequence) |
-| **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-13-virtuelle-spalten-virtual-columns) |
-| **ROW_NUMBER / RANK** | Analytische Funktionen (Window Functions) für Ranglisten ohne GROUP BY | [Zur Erklärung](#-14-analytische-funktionen-window-functions) |
-| **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-15-synonyme-synonym) |
-| **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-16-datenbank-indizes-index) |
-| **CREATE TRIGGER** | Automatische Aktionen (Reaktionen) bei Datenänderungen im Hintergrund auslösen | [Zur Erklärung](#-17-datenbank-trigger-trigger) |
+| **CREATE PACKAGE** | Logik sauber bündeln (Schaufenster & Werkstatt) | [Zur Erklärung](#-9-plsql-packages) |
+| **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#10-automatisierung-dbms_scheduler) |
+| **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-11-sequenzen-sequence) |
+| **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-12-virtuelle-spalten-virtual-columns) |
+| **ROW_NUMBER / RANK** | Analytische Funktionen (Window Functions) für Ranglisten ohne GROUP BY | [Zur Erklärung](#-13-analytische-funktionen-window-functions) |
+| **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-14-synonyme-synonym) |
+| **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-15-datenbank-indizes-index) |
+| **CREATE TRIGGER** | Automatische Aktionen (Reaktionen) bei Datenänderungen im Hintergrund auslösen | [Zur Erklärung](#-16-datenbank-trigger-trigger) |
 
 ---
 
