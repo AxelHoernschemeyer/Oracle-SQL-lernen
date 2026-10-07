@@ -151,16 +151,23 @@ Vertieftes Training erforderlich.
 
 ## Aktuelles Thema
 
-Window Functions
+## Aktuelles Thema
 
-Schwerpunkte:
+Fortschritt:
 
-- OVER()
+- ROW_NUMBER() ✅
+- RANK() ✅
+- OVER() ✅
+- PARTITION BY ✅
+- Top-N-Abfragen ✅
+- Running Totals 🔄
+
+Status:
+
+Grundlagen verstanden und praktisch angewendet.
+Vertiefung läuft.
+
 - ROW_NUMBER()
-- RANK()
-- PARTITION BY
-- Running Totals
-
 Status:
 
 Grundlagen dokumentiert.
