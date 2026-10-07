@@ -167,12 +167,6 @@ Status:
 Grundlagen verstanden und praktisch angewendet.
 Vertiefung läuft.
 
-- ROW_NUMBER()
-Status:
-
-Grundlagen dokumentiert.
-Praktische Anwendung noch nicht sicher.
-
 ---
 
 ## Nächstes Lernziel
