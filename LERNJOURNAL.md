@@ -10,27 +10,73 @@ Oracle SQL sicher beherrschen und anschließend PL/SQL erlernen.
 
 ### Beherrschte Themen
 
+#### Datenmodellierung & DDL
+
 - CREATE TABLE
+- ALTER TABLE
+- Datentypen (VARCHAR2, NUMBER, DATE)
+- PRIMARY KEY
+- FOREIGN KEY
+- NOT NULL
+- UNIQUE
+- CHECK Constraints
+- DEFAULT-Werte
+- Identity-Spalten
+- Sequenzen
+- Virtuelle Spalten
+
+#### Datenmanipulation (DML)
+
 - INSERT
+- UPDATE
+- DELETE
+- MERGE INTO
+- COMMIT
+- ROLLBACK
+- SAVEPOINT
+
+#### Datenabfragen (DQL)
+
 - SELECT
 - WHERE
 - ORDER BY
-- UPDATE
-- DELETE
-- COMMIT
 - INNER JOIN
+- LEFT JOIN
+- RIGHT JOIN
 - GROUP BY
 - HAVING
-- SUM
-- AVG
-- MIN
-- MAX
-- COUNT
-- Primary Keys
-- Foreign Keys
-- Datenintegrität
-- Tabellen-Aliase
-- Identity-Spalten (Auto Increment)
+- Aggregatfunktionen
+- ROUND
+
+#### Fortgeschrittene SQL-Techniken
+
+- Subqueries
+- CASE WHEN
+- NVL
+- COALESCE
+- Datumsfunktionen
+- Stringfunktionen
+- Datentyp-Konvertierung
+
+#### Mengenoperationen
+
+- UNION
+- UNION ALL
+- INTERSECT
+- MINUS
+
+#### Datenbankobjekte
+
+- Views
+- Synonyme
+- Indizes
+- Trigger
+
+#### Oracle Spezialthemen
+
+- Packages
+- DBMS_SCHEDULER
+- Analytische Funktionen (Grundlagen vorhanden)
 
 ---
 
@@ -40,66 +86,103 @@ Oracle SQL sicher beherrschen und anschließend PL/SQL erlernen.
 
 07.10.2026
 
-### Ergebnis
+### Prüfung A - SQL Grundlagen
 
-Beherrscht und sicher angewendet:
+Ergebnis:
 
-- SELECT
-- WHERE
-- ORDER BY
-- INNER JOIN
-- GROUP BY
-- HAVING
-- SUM
-- Aggregatfunktionen
-- Tabellen-Aliase
-- JOIN-Bedingungen
+- SELECT sicher
+- WHERE sicher
+- ORDER BY sicher
+- INNER JOIN sicher
+- GROUP BY sicher
+- HAVING sicher
+- Aggregatfunktionen sicher
+- Tabellen-Aliase sicher
+- Relationale Datenmodelle verstanden
 
-### Beobachtungen
+Bewertung:
 
-- SQL-Abfragen werden selbstständig formuliert.
-- JOINs werden sicher eingesetzt.
-- Aggregationen werden verstanden.
-- GROUP BY und HAVING sind bekannt.
-- Relationale Zusammenhänge werden erkannt.
-- Gute Lesbarkeit und Struktur der SQL-Statements.
+Die Grundlagen werden sicher und ohne Nachschlagewerk angewendet.
 
-### Empfehlung
+---
 
-Nächstes größeres Thema:
+### Prüfung B - Fortgeschrittene SQL-Techniken
 
-- Subqueries (Unterabfragen)
+#### Aufgabe 1 - Subquery
 
-Anschließend:
+Status: ✅ Sicher
 
-- LEFT JOIN
-- RIGHT JOIN
-- EXISTS / NOT EXISTS
-- Views
-- Oracle Funktionen vertiefen
-- PL/SQL Grundlagen
+- Mehrzeilige Subqueries mit IN korrekt eingesetzt.
+- Selbstständige Lösungsfindung.
+
+#### Aufgabe 2 - LEFT JOIN
+
+Status: ✅ Sicher
+
+- LEFT JOIN korrekt verstanden.
+- Kleiner Alias-Fehler, Konzept jedoch vollständig vorhanden.
+
+#### Aufgabe 3 - CASE
+
+Status: ✅ Sicher
+
+- CASE WHEN selbstständig angewendet.
+- Logik korrekt formuliert.
+
+#### Aufgabe 4 - Views
+
+Status: 🟡 Teilweise sicher
+
+- CREATE VIEW korrekt aufgebaut.
+- GROUP BY in Aggregations-View vergessen.
+
+Vertiefung empfohlen.
+
+#### Aufgabe 5 - Window Functions
+
+Status: 🔴 Unsicher
+
+- Dokumentiert und bereits behandelt.
+- Praktische Anwendung aktuell nicht ohne Nachschlagewerk möglich.
+
+Vertieftes Training erforderlich.
 
 ---
 
 ## Aktuelles Thema
 
-Vorbereitung auf Subqueries
+Window Functions
+
+Schwerpunkte:
+
+- OVER()
+- ROW_NUMBER()
+- RANK()
+- PARTITION BY
+- Running Totals
+
+Status:
+
+Grundlagen dokumentiert.
+Praktische Anwendung noch nicht sicher.
 
 ---
 
-## Nächstes Thema
+## Nächstes Lernziel
 
-Subqueries
+Analytische Funktionen sicher anwenden können.
+
+Insbesondere:
+
+- Ranglisten erstellen
+- Top-N-Abfragen
+- Gruppierte Ranglisten
+- Laufende Summen
+- Unterschied zwischen GROUP BY und Window Functions verstehen
 
 ---
 
-## Offene Fragen
-
-Noch keine
-
----
-
-## Lernplan
+## Lernpfad
 
 ### Modul 1 - SQL Grundlagen ✅
 
@@ -108,16 +191,25 @@ Noch keine
 - Daten ändern
 - Daten löschen
 - Daten abfragen
-- Sortieren
 - Filtern
+- Sortieren
+
+Abgeschlossen.
+
+---
 
 ### Modul 2 - Relationale Datenbanken ✅
 
-- Primärschlüssel
-- Fremdschlüssel
+- Primary Keys
+- Foreign Keys
 - Referentielle Integrität
 - INNER JOIN
-- Tabellen-Aliase
+- LEFT JOIN
+- RIGHT JOIN
+
+Abgeschlossen.
+
+---
 
 ### Modul 3 - Aggregationen ✅
 
@@ -128,30 +220,58 @@ Noch keine
 - COUNT
 - GROUP BY
 - HAVING
+- ROUND
 
-### Modul 4 - Fortgeschrittene SQL-Techniken 🔄
+Abgeschlossen.
+
+---
+
+### Modul 4 - Fortgeschrittene SQL-Techniken ✅
 
 - Subqueries
-- LEFT JOIN
-- RIGHT JOIN
-- EXISTS
-- NOT EXISTS
-- Set-Operatoren
+- CASE WHEN
+- Datumsfunktionen
+- Stringfunktionen
+- UNION
+- UNION ALL
+- INTERSECT
+- MINUS
 
-### Modul 5 - Datenbankobjekte ⏳
+Weitgehend abgeschlossen.
+
+---
+
+### Modul 5 - Datenbankobjekte 🟡
 
 - Views
-- Sequenzen
 - Synonyme
+- Indizes
+- Trigger
 
-### Modul 6 - PL/SQL ⏳
+Vertiefung erforderlich.
 
-- Variablen
-- Blöcke
-- Bedingungen
-- Schleifen
+---
+
+### Modul 6 - Analytische Funktionen 🔄
+
+- OVER()
+- ROW_NUMBER()
+- RANK()
+- PARTITION BY
+- Running Totals
+
+Aktuelles Lernmodul.
+
+---
+
+### Modul 7 - PL/SQL 🔄
+
+- Packages
 - Prozeduren
 - Funktionen
+- Scheduler
+
+Spätere Vertiefung.
 
 ---
 
@@ -159,19 +279,67 @@ Noch keine
 
 ### Meilenstein 1 ✅
 
-Erste relationale Datenbank aufgebaut.
+Oracle Database lokal über Docker eingerichtet.
 
 ### Meilenstein 2 ✅
 
-JOINs zwischen mehreren Tabellen erfolgreich eingesetzt.
+Eigenen Lern-Workspace aufgebaut.
 
 ### Meilenstein 3 ✅
 
-Aggregationen und Gruppierungen erfolgreich angewendet.
+Erstes relationales Datenmodell erstellt.
 
-### Meilenstein 4 🔄
+### Meilenstein 4 ✅
 
-Fortgeschrittene SQL-Techniken erlernen.
+Joins sicher eingesetzt.
+
+### Meilenstein 5 ✅
+
+Aggregationen verstanden und angewendet.
+
+### Meilenstein 6 ✅
+
+Subqueries sicher angewendet.
+
+### Meilenstein 7 🔄
+
+Analytische Funktionen beherrschen.
+
+### Meilenstein 8 ⏳
+
+PL/SQL produktiv einsetzen.
+
+---
+
+## Offene Fragen
+
+- Wann sollte man Window Functions statt GROUP BY verwenden?
+- Wann verwendet man ROW_NUMBER() und wann RANK()?
+- Wie erstellt man professionelle Reporting-Abfragen?
+
+---
+
+## Notizen des Dozenten
+
+Aktuelle Einschätzung:
+
+Der Lernstand liegt deutlich über dem eines SQL-Anfängers.
+
+Besonders sicher sind:
+
+- Relationale Modellierung
+- JOINs
+- Aggregatfunktionen
+- Subqueries
+- CASE WHEN
+
+Das aktuell größte Entwicklungspotenzial liegt im Bereich:
+
+- Analytische Funktionen
+- Reporting-Abfragen
+- Fortgeschrittene Views
+- Performance-Denken
+- PL/SQL
 
 ---
 
