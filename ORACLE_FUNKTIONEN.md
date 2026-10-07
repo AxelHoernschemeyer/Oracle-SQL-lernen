@@ -503,9 +503,9 @@ SELECT produkt, NVL(preis, 0.00) AS gueltiger_preis
 FROM bestellungen 
 WHERE produkt IS NOT NULL;
 
-ELECT  Vorname,
+SELECT  Vorname,
 		Nachname,
-		Coalesce(Telefon, Email,'Es wurde keine hinterlegt') AS Primaerer_Kontakt
+		COALESCE(Telefon, Email,'Es wurde keine hinterlegt') AS Primaerer_Kontakt
 FROM Kunden;
 ```
 
@@ -852,7 +852,7 @@ SELECT ticket_id,
        -- Trennwand nach Status, Sortierung nach ID innerhalb der Gruppe
        RANK() OVER(PARTITION BY status ORDER BY ticket_id ASC) AS ticket_rang_pro_status
 FROM support_tickets;
-``
+```
 
 ### 3. Fortlaufende Gesamtsumme (Running Total)
 Wenn man innerhalb von `OVER()` ein `ORDER BY` verwendet, berechnet Oracle die Summe nicht auf einmal, sondern wandert Zeile für Zeile von oben nach unten und baut eine fortlaufende Gesamtsumme (wie einen Kontoauszug) auf:
