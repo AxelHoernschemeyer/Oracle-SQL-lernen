@@ -151,8 +151,6 @@ Vertieftes Training erforderlich.
 
 ## Aktuelles Thema
 
-## Aktuelles Thema
-
 Fortschritt:
 
 - ROW_NUMBER() ✅
@@ -160,12 +158,17 @@ Fortschritt:
 - OVER() ✅
 - PARTITION BY ✅
 - Top-N-Abfragen ✅
-- Running Totals 🔄
+- Running Totals ✅
+
+Praxisübungen:
+
+Ranglisten erstellt
+Top-1 pro Gruppe ermittelt
+Laufende Punktesumme über Bundesliga-Spieltage berechnet
 
 Status:
 
-Grundlagen verstanden und praktisch angewendet.
-Vertiefung läuft.
+Grundlagen verstanden und praktisch umgesetzt.
 
 ---
 
