@@ -162,9 +162,9 @@ Fortschritt:
 
 Praxisübungen:
 
-Ranglisten erstellt
-Top-1 pro Gruppe ermittelt
-Laufende Punktesumme über Bundesliga-Spieltage berechnet
+- Ranglisten erstellt
+- Top-1 pro Gruppe ermittelt
+- Laufende Punktesumme über Bundesliga-Spieltage berechnet
 
 Status:
 
