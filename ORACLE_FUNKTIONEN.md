@@ -40,7 +40,7 @@ Hier dokumentiere ich alle gängigen SQL-Befehle, Datentypen und Funktionen, die
 | **DBMS_SCHEDULER** | Jobs vollautomatisch im Hintergrund steuern | [Zur Erklärung](#10-automatisierung-dbms_scheduler) |
 | **CREATE SEQUENCE** | Unabhängige Nummern-Generatoren (Standard & Kreislauf) | [Zur Erklärung](#-11-sequenzen-sequence) |
 | **VIRTUAL COLUMN** | Berechnungen vollautomatisch ohne Speicherplatz | [Zur Erklärung](#-12-virtuelle-spalten-virtual-columns) |
-| **ROW_NUMBER / RANK** | Analytische Funktionen (Window Functions) für Ranglisten ohne GROUP BY | [Zur Erklärung](#-13-analytische-funktionen-window-functions) |
+| **ROW_NUMBER / RANK / DENSE_RANK** | Analytische Funktionen (Window Functions) für Ranglisten ohne GROUP BY | [Zur Erklärung](#-13-analytische-funktionen-window-functions) |
 | **CREATE SYNONYM** | Dauerhafte Spitznamen für lange Tabellennamen vergeben | [Zur Erklärung](#-14-synonyme-synonym) |
 | **CREATE INDEX** | Abfragen bei großen Datenmengen massiv beschleunigen (Performance) | [Zur Erklärung](#-15-datenbank-indizes-index) |
 | **CREATE TRIGGER** | Automatische Aktionen (Reaktionen) bei Datenänderungen im Hintergrund auslösen | [Zur Erklärung](#-16-datenbank-trigger-trigger) |
@@ -807,6 +807,7 @@ Analytische Funktionen führen Berechnungen über eine Gruppe von Zeilen durch (
 ### 1. Der Unterschied zwischen ROW_NUMBER() und RANK()
 *   **`ROW_NUMBER()`**: Nummeriert Zeilen stumpf fortlaufend durch (keine doppelten Platzierungen bei Wertegleichheit).
 *   **`RANK()`**: Vergibt echte sportliche Platzierungen. Bei gleichen Werten gibt es denselben Platz, der darauffolgende Platz wird übersprungen.
+*   **`DENSE_RANK()`**: Vergibt echte Platzierungen jedoch wird der darauffolgende Platz bei gleichen Plätzen **`nicht`** übersprungen.
 
 ```sql
 SELECT heim_team, gast_team, punkte,
