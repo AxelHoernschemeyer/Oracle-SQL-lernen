@@ -163,13 +163,15 @@ Fortschritt:
 
 Praxisübungen:
 
-- Ranglisten erstellt
-- Top-1 pro Gruppe ermittelt
-- Laufende Punktesumme über Bundesliga-Spieltage berechnet
+Praxisübung erfolgreich durchgeführt.
 
+Anwendung:
+
+Ranglisten pro Abteilung
+Gehaltsranking
 Status:
 
-Grundlagen verstanden und praktisch umgesetzt.
+Mit Nachschlagewerk sicher anwendbar.
 
 ---
 
