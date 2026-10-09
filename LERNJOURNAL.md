@@ -2,354 +2,355 @@
 
 ## Lernziel
 
-Oracle SQL sicher beherrschen und anschließend PL/SQL erlernen.
+Oracle SQL sicher beherrschen und anschließend fortgeschrittene Oracle-Themen sowie PL/SQL erlernen.
 
 ---
 
-## Aktueller Stand
+# Technische Lernumgebung
 
-### Beherrschte Themen
+## Datenbank
 
-#### Datenmodellierung & DDL
+- Oracle Database Free
+- Docker-Container auf macOS
 
-- CREATE TABLE
-- ALTER TABLE
-- Datentypen (VARCHAR2, NUMBER, DATE)
-- PRIMARY KEY
-- FOREIGN KEY
-- NOT NULL
-- UNIQUE
-- CHECK Constraints
-- DEFAULT-Werte
-- Identity-Spalten
-- Sequenzen
-- Virtuelle Spalten
+## Werkzeuge
 
-#### Datenmanipulation (DML)
-
-- INSERT
-- UPDATE
-- DELETE
-- MERGE INTO
-- COMMIT
-- ROLLBACK
-- SAVEPOINT
-
-#### Datenabfragen (DQL)
-
-- SELECT
-- WHERE
-- ORDER BY
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN
-- GROUP BY
-- HAVING
-- Aggregatfunktionen
-- ROUND
-
-#### Fortgeschrittene SQL-Techniken
-
-- Subqueries
-- CASE WHEN
-- NVL
-- COALESCE
-- Datumsfunktionen
-- Stringfunktionen
-- Datentyp-Konvertierung
-
-#### Mengenoperationen
-
-- UNION
-- UNION ALL
-- INTERSECT
-- MINUS
-
-#### Datenbankobjekte
-
-- Views
-- Synonyme
-- Indizes
-- Trigger
-
-#### Oracle Spezialthemen
-
-- Packages
-- DBMS_SCHEDULER
-- Analytische Funktionen (Grundlagen vorhanden)
+- DBeaver Community Edition
+- GitHub Repository "Oracle-SQL-lernen"
+- Copilot Notebook "Oracle SQL Ausbildung"
 
 ---
 
-## Standortbestimmung mit Copilot
+# Aktuelle Datenmodelle
 
-### Datum
+## Shop-System
 
-07.10.2026
+### KUNDEN
 
-### Prüfung A - SQL Grundlagen
+- Kunde_ID
+- Vorname
+- Nachname
+- E-Mail
+- Registriert_Am
 
-Ergebnis:
+### PRODUKTE
 
-- SELECT sicher
-- WHERE sicher
-- ORDER BY sicher
-- INNER JOIN sicher
-- GROUP BY sicher
-- HAVING sicher
-- Aggregatfunktionen sicher
-- Tabellen-Aliase sicher
-- Relationale Datenmodelle verstanden
+- Produkt_ID
+- Name
+- Preis_Netto
+- Preis_Brutto
+- Kategorie
 
-Bewertung:
+### BESTELLUNGEN
 
-Die Grundlagen werden sicher und ohne Nachschlagewerk angewendet.
-
----
-
-### Prüfung B - Fortgeschrittene SQL-Techniken
-
-#### Aufgabe 1 - Subquery
-
-Status: ✅ Sicher
-
-- Mehrzeilige Subqueries mit IN korrekt eingesetzt.
-- Selbstständige Lösungsfindung.
-
-#### Aufgabe 2 - LEFT JOIN
-
-Status: ✅ Sicher
-
-- LEFT JOIN korrekt verstanden.
-- Kleiner Alias-Fehler, Konzept jedoch vollständig vorhanden.
-
-#### Aufgabe 3 - CASE
-
-Status: ✅ Sicher
-
-- CASE WHEN selbstständig angewendet.
-- Logik korrekt formuliert.
-
-#### Aufgabe 4 - Views
-
-Status: 🟡 Teilweise sicher
-
-- CREATE VIEW korrekt aufgebaut.
-- GROUP BY in Aggregations-View vergessen.
-
-Vertiefung empfohlen.
-
-#### Aufgabe 5 - Window Functions
-
-Status: 🔴 Unsicher
-
-- Dokumentiert und bereits behandelt.
-- Praktische Anwendung aktuell nicht ohne Nachschlagewerk möglich.
-
-Vertieftes Training erforderlich.
+- Bestell_ID
+- FK_Kunde_ID
+- FK_Produkt_ID
+- Bestellt_Am
+- Versendet_Am
 
 ---
 
-## Aktuelles Thema
+## Support-System
 
-Fortschritt:
+### SUPPORT_TICKETS
 
-- ROW_NUMBER() ✅
-- RANK() ✅
-- DENSE_RANK() ✅
-- OVER() ✅
-- PARTITION BY ✅
-- Top-N-Abfragen ✅
-- Running Totals ✅
+- Ticket_ID
+- Problem
+- Status
 
-Praxisübungen:
+### TEAM_MITGLIEDER
 
-Praxisübung erfolgreich durchgeführt.
+- Mitglied_ID
+- Vorname
+- Nachname
+- Gehalt
+- Status
+- Abteilung
 
-Anwendung:
+### TEAM_LOG
 
-Ranglisten pro Abteilung
-Gehaltsranking
-Status:
-
-Mit Nachschlagewerk sicher anwendbar.
+Audit- und Log-Tabelle
 
 ---
 
-## Nächstes Lernziel
+## Bundesliga-System
 
-Analytische Funktionen sicher anwenden können.
+### BUNDESLIGA_TIPPS
 
-Insbesondere:
-
-- Ranglisten erstellen
-- Top-N-Abfragen
-- Gruppierte Ranglisten
-- Laufende Summen
-- Unterschied zwischen GROUP BY und Window Functions verstehen
-
----
-
-## Lernpfad
-
-### Modul 1 - SQL Grundlagen ✅
-
-- Tabellen erstellen
-- Daten einfügen
-- Daten ändern
-- Daten löschen
-- Daten abfragen
-- Filtern
-- Sortieren
-
-Abgeschlossen.
+- Spiel_ID
+- Spieltag
+- Heim_Team
+- Gast_Team
+- Tipp
+- Ergebnis
+- Punkte
 
 ---
 
-### Modul 2 - Relationale Datenbanken ✅
+# Beherrschte Themen
 
-- Primary Keys
-- Foreign Keys
-- Referentielle Integrität
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN
+## SQL-Grundlagen
 
-Abgeschlossen.
+✅ SELECT
 
----
+✅ WHERE
 
-### Modul 3 - Aggregationen ✅
+✅ ORDER BY
 
-- SUM
-- AVG
-- MIN
-- MAX
-- COUNT
-- GROUP BY
-- HAVING
-- ROUND
+✅ Tabellen-Aliase
 
-Abgeschlossen.
+✅ LIKE
+
+✅ BETWEEN
+
+✅ NULL-Behandlung
 
 ---
 
-### Modul 4 - Fortgeschrittene SQL-Techniken ✅
+## Datenmodellierung
 
-- Subqueries
-- CASE WHEN
-- Datumsfunktionen
-- Stringfunktionen
-- UNION
-- UNION ALL
-- INTERSECT
-- MINUS
+✅ CREATE TABLE
 
-Weitgehend abgeschlossen.
+✅ ALTER TABLE
 
----
+✅ Datentypen
 
-### Modul 5 - Datenbankobjekte 🟡
+✅ PRIMARY KEY
 
-- Views
-- Synonyme
-- Indizes
-- Trigger
+✅ FOREIGN KEY
 
-Vertiefung erforderlich.
+✅ NOT NULL
 
----
+✅ UNIQUE
 
-### Modul 6 - Analytische Funktionen 🔄
+✅ CHECK
 
-- OVER()
-- ROW_NUMBER()
-- RANK()
-- PARTITION BY
-- Running Totals
+✅ DEFAULT
 
-Aktuelles Lernmodul.
+✅ Identity-Spalten
+
+✅ Sequenzen
+
+✅ Virtuelle Spalten
 
 ---
 
-### Modul 7 - PL/SQL 🔄
+## Datenmanipulation
 
-- Packages
-- Prozeduren
-- Funktionen
-- Scheduler
+✅ INSERT
 
-Spätere Vertiefung.
+✅ UPDATE
 
----
+✅ DELETE
 
-## Meilensteine
+✅ COMMIT
 
-### Meilenstein 1 ✅
+✅ ROLLBACK
 
-Oracle Database lokal über Docker eingerichtet.
+✅ SAVEPOINT
 
-### Meilenstein 2 ✅
-
-Eigenen Lern-Workspace aufgebaut.
-
-### Meilenstein 3 ✅
-
-Erstes relationales Datenmodell erstellt.
-
-### Meilenstein 4 ✅
-
-Joins sicher eingesetzt.
-
-### Meilenstein 5 ✅
-
-Aggregationen verstanden und angewendet.
-
-### Meilenstein 6 ✅
-
-Subqueries sicher angewendet.
-
-### Meilenstein 7 🔄
-
-Analytische Funktionen beherrschen.
-
-### Meilenstein 8 ⏳
-
-PL/SQL produktiv einsetzen.
+✅ MERGE INTO (Grundlagen)
 
 ---
 
-## Offene Fragen
+## Joins
 
-- Wann sollte man Window Functions statt GROUP BY verwenden?
-- Wann verwendet man ROW_NUMBER() und wann RANK()?
-- Wie erstellt man professionelle Reporting-Abfragen?
+✅ INNER JOIN
 
----
+✅ LEFT JOIN
 
-## Notizen des Dozenten
+✅ RIGHT JOIN
 
-Aktuelle Einschätzung:
-
-Der Lernstand liegt deutlich über dem eines SQL-Anfängers.
-
-Besonders sicher sind:
-
-- Relationale Modellierung
-- JOINs
-- Aggregatfunktionen
-- Subqueries
-- CASE WHEN
-
-Das aktuell größte Entwicklungspotenzial liegt im Bereich:
-
-- Analytische Funktionen
-- Reporting-Abfragen
-- Fortgeschrittene Views
-- Performance-Denken
-- PL/SQL
+🟡 SELF JOIN
 
 ---
 
-## Letzte Aktualisierung
+## Aggregationen
 
-07.10.2026
+✅ COUNT
+
+✅ SUM
+
+✅ AVG
+
+✅ MIN
+
+✅ MAX
+
+✅ GROUP BY
+
+✅ HAVING
+
+✅ ROUND
+
+---
+
+## Fortgeschrittene SQL-Techniken
+
+✅ Subqueries
+
+- Einzeilige Subqueries
+- Mehrzeilige Subqueries
+- IN-Subqueries
+
+✅ CASE WHEN
+
+✅ NVL
+
+✅ COALESCE
+
+✅ Stringfunktionen
+
+✅ Datumsfunktionen
+
+✅ Datentyp-Konvertierung
+
+---
+
+## Mengenoperatoren
+
+✅ UNION
+
+✅ UNION ALL
+
+✅ INTERSECT
+
+✅ MINUS
+
+---
+
+## Datenbankobjekte
+
+✅ Views
+
+✅ Constraints
+
+✅ Sequenzen
+
+✅ Synonyme
+
+✅ Indizes (Grundlagen)
+
+✅ Trigger (Grundlagen)
+
+---
+
+## Oracle-Spezialthemen
+
+✅ Packages (Grundlagen dokumentiert)
+
+✅ DBMS_SCHEDULER (Grundlagen dokumentiert)
+
+✅ Trigger-Logging
+
+✅ Virtuelle Spalten
+
+---
+
+# Window Functions
+
+## Beherrschte Funktionen
+
+✅ OVER()
+
+✅ ROW_NUMBER()
+
+✅ RANK()
+
+✅ DENSE_RANK()
+
+✅ PARTITION BY
+
+✅ Running Totals
+
+---
+
+## Praktische Übungen
+
+✅ Ranglisten erstellt
+
+✅ Ranglisten pro Abteilung
+
+✅ Top-1-pro-Gruppe
+
+✅ Unterschied ROW_NUMBER und RANK
+
+✅ Unterschied RANK und DENSE_RANK
+
+✅ Running Totals auf Bundesliga-Daten
+
+✅ Gehaltsranking mit DENSE_RANK
+
+---
+
+## Status
+
+Window Functions Grundlagen verstanden und praktisch angewendet.
+
+Aktuell sicher mit Nachschlagewerk.
+
+---
+
+# Views
+
+## Verstanden
+
+✅ CREATE VIEW
+
+✅ CREATE OR REPLACE VIEW
+
+✅ Aggregationen in Views
+
+✅ Views im Reporting nutzen
+
+✅ View als virtuelle Tabelle verstehen
+
+---
+
+## Praktische Übung
+
+✅ V_KUNDENUMSAETZE erstellt
+
+Spalten:
+
+- Kunde_ID
+- Vorname
+- Nachname
+- Gesamtumsatz
+
+---
+
+# Reporting-Aufgaben erfolgreich gelöst
+
+## Kundenumsatz-Reporting
+
+✅ Umsatz pro Kunde
+
+✅ Umsatzsortierung
+
+✅ SUM mit GROUP BY
+
+✅ JOIN über mehrere Tabellen
+
+---
+
+## Reporting mit Kunden ohne Bestellungen
+
+✅ LEFT JOIN korrekt eingesetzt
+
+✅ NVL zur Behandlung von NULL-Werten
+
+✅ Umsatz 0 statt NULL
+
+---
+
+## Support-Reporting
+
+✅ CASE-Anweisungen
+
+✅ Statusübersetzung
+
+```text
+OFFEN -> Ticket noch offen
+IN BEARBEITUNG -> Ticket wird bearbeitet
