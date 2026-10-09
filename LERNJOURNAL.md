@@ -1,356 +1,321 @@
 # Oracle SQL Lernjournal
 
-## Lernziel
-
-Oracle SQL sicher beherrschen und anschließend fortgeschrittene Oracle-Themen sowie PL/SQL erlernen.
+> Persönliches Lernjournal zur Oracle-SQL-Ausbildung
 
 ---
 
-# Technische Lernumgebung
+# Lernziel
+
+Oracle SQL sicher beherrschen und anschließend PL/SQL sowie fortgeschrittene Oracle-Themen erlernen.
+
+---
+
+# Technische Umgebung
 
 ## Datenbank
 
 - Oracle Database Free
-- Docker-Container auf macOS
+- Docker Container
 
 ## Werkzeuge
 
 - DBeaver Community Edition
-- GitHub Repository "Oracle-SQL-lernen"
-- Copilot Notebook "Oracle SQL Ausbildung"
+- GitHub Repository
+- Copilot Notebook
 
 ---
 
-# Aktuelle Datenmodelle
-
-## Shop-System
-
-### KUNDEN
-
-- Kunde_ID
-- Vorname
-- Nachname
-- E-Mail
-- Registriert_Am
-
-### PRODUKTE
-
-- Produkt_ID
-- Name
-- Preis_Netto
-- Preis_Brutto
-- Kategorie
-
-### BESTELLUNGEN
-
-- Bestell_ID
-- FK_Kunde_ID
-- FK_Produkt_ID
-- Bestellt_Am
-- Versendet_Am
-
----
-
-## Support-System
-
-### SUPPORT_TICKETS
-
-- Ticket_ID
-- Problem
-- Status
-
-### TEAM_MITGLIEDER
-
-- Mitglied_ID
-- Vorname
-- Nachname
-- Gehalt
-- Status
-- Abteilung
-
-### TEAM_LOG
-
-Audit- und Log-Tabelle
-
----
-
-## Bundesliga-System
-
-### BUNDESLIGA_TIPPS
-
-- Spiel_ID
-- Spieltag
-- Heim_Team
-- Gast_Team
-- Tipp
-- Ergebnis
-- Punkte
-
----
-
-# Beherrschte Themen
+# Aktueller Lernstand
 
 ## SQL-Grundlagen
 
-✅ SELECT
-
-✅ WHERE
-
-✅ ORDER BY
-
-✅ Tabellen-Aliase
-
-✅ LIKE
-
-✅ BETWEEN
-
-✅ NULL-Behandlung
+| Thema | Status |
+|---------|---------|
+| SELECT | ✅ |
+| WHERE | ✅ |
+| ORDER BY | ✅ |
+| LIKE | ✅ |
+| BETWEEN | ✅ |
+| NULL-Werte | ✅ |
+| Aliase | ✅ |
 
 ---
 
 ## Datenmodellierung
 
-✅ CREATE TABLE
-
-✅ ALTER TABLE
-
-✅ Datentypen
-
-✅ PRIMARY KEY
-
-✅ FOREIGN KEY
-
-✅ NOT NULL
-
-✅ UNIQUE
-
-✅ CHECK
-
-✅ DEFAULT
-
-✅ Identity-Spalten
-
-✅ Sequenzen
-
-✅ Virtuelle Spalten
+| Thema | Status |
+|---------|---------|
+| CREATE TABLE | ✅ |
+| ALTER TABLE | ✅ |
+| PRIMARY KEY | ✅ |
+| FOREIGN KEY | ✅ |
+| CHECK | ✅ |
+| UNIQUE | ✅ |
+| DEFAULT | ✅ |
+| Sequenzen | ✅ |
+| Identity-Spalten | ✅ |
+| Virtuelle Spalten | ✅ |
 
 ---
 
 ## Datenmanipulation
 
-✅ INSERT
-
-✅ UPDATE
-
-✅ DELETE
-
-✅ COMMIT
-
-✅ ROLLBACK
-
-✅ SAVEPOINT
-
-✅ MERGE INTO (Grundlagen)
+| Thema | Status |
+|---------|---------|
+| INSERT | ✅ |
+| UPDATE | ✅ |
+| DELETE | ✅ |
+| COMMIT | ✅ |
+| ROLLBACK | ✅ |
+| SAVEPOINT | ✅ |
+| MERGE INTO | ✅ Grundlagen |
 
 ---
 
 ## Joins
 
-✅ INNER JOIN
-
-✅ LEFT JOIN
-
-✅ RIGHT JOIN
-
-🟡 SELF JOIN
+| Thema | Status |
+|---------|---------|
+| INNER JOIN | ✅ |
+| LEFT JOIN | ✅ |
+| RIGHT JOIN | ✅ |
+| SELF JOIN | 🟡 |
 
 ---
 
 ## Aggregationen
 
-✅ COUNT
-
-✅ SUM
-
-✅ AVG
-
-✅ MIN
-
-✅ MAX
-
-✅ GROUP BY
-
-✅ HAVING
-
-✅ ROUND
+| Thema | Status |
+|---------|---------|
+| COUNT | ✅ |
+| SUM | ✅ |
+| AVG | ✅ |
+| MIN | ✅ |
+| MAX | ✅ |
+| GROUP BY | ✅ |
+| HAVING | ✅ |
+| ROUND | ✅ |
 
 ---
 
 ## Fortgeschrittene SQL-Techniken
 
-✅ Subqueries
-
-- Einzeilige Subqueries
-- Mehrzeilige Subqueries
-- IN-Subqueries
-
-✅ CASE WHEN
-
-✅ NVL
-
-✅ COALESCE
-
-✅ Stringfunktionen
-
-✅ Datumsfunktionen
-
-✅ Datentyp-Konvertierung
+| Thema | Status |
+|---------|---------|
+| Subqueries | ✅ |
+| CASE | ✅ |
+| NVL | ✅ |
+| COALESCE | ✅ |
+| Datumsfunktionen | ✅ |
+| Stringfunktionen | ✅ |
+| Datentyp-Konvertierung | ✅ |
 
 ---
 
 ## Mengenoperatoren
 
-✅ UNION
-
-✅ UNION ALL
-
-✅ INTERSECT
-
-✅ MINUS
+| Thema | Status |
+|---------|---------|
+| UNION | ✅ |
+| UNION ALL | ✅ |
+| INTERSECT | ✅ |
+| MINUS | ✅ |
 
 ---
 
 ## Datenbankobjekte
 
-✅ Views
-
-✅ Constraints
-
-✅ Sequenzen
-
-✅ Synonyme
-
-✅ Indizes (Grundlagen)
-
-✅ Trigger (Grundlagen)
+| Thema | Status |
+|---------|---------|
+| Views | ✅ |
+| Constraints | ✅ |
+| Sequenzen | ✅ |
+| Synonyme | ✅ |
+| Indizes | ✅ Grundlagen |
+| Trigger | ✅ Grundlagen |
 
 ---
 
-## Oracle-Spezialthemen
+## Window Functions
 
-✅ Packages (Grundlagen dokumentiert)
+| Thema | Status |
+|---------|---------|
+| OVER() | ✅ |
+| ROW_NUMBER() | ✅ |
+| RANK() | ✅ |
+| DENSE_RANK() | ✅ |
+| PARTITION BY | ✅ |
+| Running Totals | ✅ |
 
-✅ DBMS_SCHEDULER (Grundlagen dokumentiert)
+### Praxis erfolgreich durchgeführt
 
-✅ Trigger-Logging
-
-✅ Virtuelle Spalten
-
----
-
-# Window Functions
-
-## Beherrschte Funktionen
-
-✅ OVER()
-
-✅ ROW_NUMBER()
-
-✅ RANK()
-
-✅ DENSE_RANK()
-
-✅ PARTITION BY
-
-✅ Running Totals
+- Ranglisten
+- Ranglisten pro Abteilung
+- Top-1-pro-Gruppe
+- Gehaltsrankings
+- Running Totals
+- Bundesliga-Auswertungen
 
 ---
 
-## Praktische Übungen
+# Ausbildungseinheiten
 
-✅ Ranglisten erstellt
+## Ausbildungseinheit 1
 
-✅ Ranglisten pro Abteilung
+### Themen
 
-✅ Top-1-pro-Gruppe
+- ROW_NUMBER()
+- RANK()
+- PARTITION BY
 
-✅ Unterschied ROW_NUMBER und RANK
+### Status
 
-✅ Unterschied RANK und DENSE_RANK
-
-✅ Running Totals auf Bundesliga-Daten
-
-✅ Gehaltsranking mit DENSE_RANK
+✅ Abgeschlossen
 
 ---
 
-## Status
+## Ausbildungseinheit 2
 
-Window Functions Grundlagen verstanden und praktisch angewendet.
+### Themen
 
-Aktuell sicher mit Nachschlagewerk.
+- DENSE_RANK()
+- Kundenumsatz-Reporting
+- LEFT JOIN vs INNER JOIN
 
----
+### Status
 
-# Views
-
-## Verstanden
-
-✅ CREATE VIEW
-
-✅ CREATE OR REPLACE VIEW
-
-✅ Aggregationen in Views
-
-✅ Views im Reporting nutzen
-
-✅ View als virtuelle Tabelle verstehen
+✅ Abgeschlossen
 
 ---
 
-## Praktische Übung
+## Ausbildungseinheit 3
 
-✅ V_KUNDENUMSAETZE erstellt
+### Teil A
 
-Spalten:
+- UPDATE ✅
+- COMMIT ✅
+- ROLLBACK ✅
 
-- Kunde_ID
-- Vorname
-- Nachname
-- Gesamtumsatz
+### Teil B
 
----
+- Views verstehen ✅
+- Views erstellen ✅
+- Views im Reporting ✅
 
-# Reporting-Aufgaben erfolgreich gelöst
+### Teil C
 
-## Kundenumsatz-Reporting
+- CASE im Reporting ✅
+- Kunden ohne Bestellung ✅
+- NVL im Reporting ✅
 
-✅ Umsatz pro Kunde
+### Status
 
-✅ Umsatzsortierung
-
-✅ SUM mit GROUP BY
-
-✅ JOIN über mehrere Tabellen
-
----
-
-## Reporting mit Kunden ohne Bestellungen
-
-✅ LEFT JOIN korrekt eingesetzt
-
-✅ NVL zur Behandlung von NULL-Werten
-
-✅ Umsatz 0 statt NULL
+✅ Abgeschlossen
 
 ---
 
-## Support-Reporting
+# Erfolgreich umgesetzte Praxisaufgaben
 
-✅ CASE-Anweisungen
+## Shop-System
 
-✅ Statusübersetzung
+### Kundenumsatz
 
-```text
-OFFEN -> Ticket noch offen
-IN BEARBEITUNG -> Ticket wird bearbeitet
+- Umsatz pro Kunde
+- Umsatzranking
+- Aggregationen über mehrere Tabellen
+
+### Reporting
+
+- Kunden ohne Bestellung anzeigen
+- NULL durch 0 ersetzen
+- LEFT JOIN korrekt einsetzen
+
+---
+
+## Support-System
+
+### Tickets
+
+- Statusauswertung per CASE
+- Reporting-taugliche Statusanzeigen
+
+---
+
+## Bundesliga-System
+
+### Analytics
+
+- Running Totals
+- Window Functions
+- Ranglisten
+
+---
+
+# Aktuelle Bewertung
+
+## Sicher beherrscht
+
+- SQL Grundlagen
+- Joins
+- Aggregationen
+- CASE
+- Subqueries
+- Reporting
+- Views
+- Window Functions
+
+## Grundlagen vorhanden
+
+- Trigger
+- Indizes
+- Packages
+- Scheduler
+
+## Noch zu vertiefen
+
+- SELF JOIN
+- Komplexe Views
+- Trigger in der Praxis
+- Performance-Tuning
+- PL/SQL
+- Stored Procedures
+- Funktionen in PL/SQL
+
+---
+
+# Aktuelles Lernmodul
+
+✅ Views vertieft
+
+✅ Reporting
+
+✅ Window Functions
+
+---
+
+# Nächstes Lernmodul
+
+## Ausbildungseinheit 4
+
+### Teil A
+
+- DELETE
+- TRUNCATE
+- DROP
+
+### Teil B
+
+- Subqueries vertiefen
+
+### Teil C
+
+- Bundesliga-Reporting
+- Analytics
+- Ranglisten
+- Window Functions in der Praxis
+
+---
+
+# Letzte Aktualisierung
+
+09.10.2026
