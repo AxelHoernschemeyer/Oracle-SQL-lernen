@@ -155,6 +155,7 @@ Fortschritt:
 
 - ROW_NUMBER() ✅
 - RANK() ✅
+- DENSE_RANK() ✅
 - OVER() ✅
 - PARTITION BY ✅
 - Top-N-Abfragen ✅
