@@ -433,6 +433,38 @@ FROM kunden
 WHERE kunden_id IN (SELECT kunden_id FROM bestellungen);
 ```
 
+#### IN / NOT IN / EXISTS / NOT EXISTS - Verwendung und Unterschiede
+IN oder NOT IN vergleicht mit einer Werteliste.
+EXISTS oder NOT EXISTS Prüfung ob passende (TRUE) oder nicht (FALSE) passende Zeilen existieren.
+
+```sql
+-- Praxis Beispiele
+SELECT	p.Produkt_ID,
+		p.Name,
+		Kategorie
+FROM 	PRODUKTE p
+WHERE   p.PRODUKT_ID NOT IN 
+        (
+            SELECT b.FK_Produkt_Id
+            FROM Bestellungen b
+        );
+-- Abfrage liefert nur die Produkte, die nicht in Bestellungen vorkommen. Ggf. können Ergebnisse den Wert NULL liefern.
+-- Nutzt man hier IN bekommt man alle Produkt die in Bestellungen vorkommen.
+
+SELECT	p.Produkt_ID,
+		p.Name,
+		p.Kategorie
+FROM 	PRODUKTE p
+WHERE   NOT EXISTS 
+        (
+            SELECT b.FK_Produkt_Id
+            FROM Bestellungen b
+            WHERE p.FK_PRODUKT_ID = p.PRODUKT_ID	
+        );
+-- Abfrage liefert ebenfalls nur die Produkte, die nicht in Bestellungen vorkommen. Das Ergebnis ist hier TRUE oder FALSE.
+--`Das Pendant EXITS liefert ebenfalls TRUE oder FALSE zurück. Keine NULL-Werte. 
+```
+
 ### Text-Funktionen (Strings)
 Ermöglichen das Bearbeiten und Formatieren von Textfeldern.
 
