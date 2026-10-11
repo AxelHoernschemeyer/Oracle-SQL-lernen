@@ -303,6 +303,32 @@ WHEN NOT MATCHED THEN
     INSERT (z.id, z.spalte) VALUES (q.id, q.spalte);
 ```
 
+```sql
+-- Praxisbeispiel ohne Prüfungen
+MERGE INTO Support_Tickets st
+USING
+(
+	SELECT  50 AS Ticket_id,
+			'Drucker druckt leere Seiten' AS Problem,
+			'OFFEN' AS Status
+	FROM dual
+) src
+ON (src.Ticket_id = st.ticket_id)
+
+WHEN MATCHED THEN
+	UPDATE set
+		st.problem = src.problem,
+		st.status = src.status
+		
+WHEN NOT MATCHED THEN
+	INSERT (ticket_id, Problem, Status) 
+	VALUES (src.ticket_id, src.problem, src.status);
+
+-- Merksatz: In diesem Beispiel wird die Ticket_ID beim Insert mitgegeben obwohl das Feld sonst über eine Sequence gefüllt würde.
+--           In der Praxis sollte diese so nicht durchgeführt werden.
+
+```
+
 ### 🔍 3. Datenabfrage (DQL - Data Query Language)
 
 ### Daten auslesen (SELECT)
