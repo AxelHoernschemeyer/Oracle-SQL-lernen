@@ -67,6 +67,13 @@ CREATE TABLE KUNDEN (
     Email        VARCHAR2(100),
     Registriert  DATE DEFAULT SYSDATE
 );
+
+-- Beispiel für Primärschlüssel - User erfasst Werte
+CREATE 		TABLE Tarife(
+	Tarif_ID			varchar2(10) NOT NULL CONSTRAINT PK_Tarif_ID PRIMARY KEY,
+	Tarif_BEZEICHNUNG	varchar2(20));
+-- Erläuterung: NOT NULL = Darf nicht leer sein. CONSTRAINT 'Schlüsselname' PRIMARY KEY = Der PK-Schlüssel mit dem Namen wird angelegt.
+
 ```
 Beispiel für Beziehungen zwischen zwei Tabellen mit CONSTRAINT ... REFERENCES. Unterbindet das Löschen. 
 ```
