@@ -69,7 +69,7 @@ CREATE TABLE KUNDEN (
 );
 
 -- Beispiel für Primärschlüssel - User erfasst Werte
-CREATE 		TABLE Tarife(
+CREATE TABLE Tarife(
 	Tarif_ID			varchar2(10) NOT NULL CONSTRAINT PK_Tarif_ID PRIMARY KEY,
 	Tarif_BEZEICHNUNG	varchar2(20));
 -- Erläuterung: NOT NULL = Darf nicht leer sein. CONSTRAINT 'Schlüsselname' PRIMARY KEY = Der PK-Schlüssel mit dem Namen wird angelegt.
@@ -202,10 +202,16 @@ VALUES ('Sarah', 'Müller', 4500, 'AKTIV', 'MARKETING');
 *   **`CHECK (bedingung)`**: Prüft, ob der eingegebene Wert einer logischen Bedingung entspricht (z. B. `preis > 0`).
 
 ```sql
--- Nachträglich per ALTER TABLE hinzufügen
+-- Nachträglich per ALTER TABLE hinzufügen.
 ALTER TABLE kunden MODIFY email NOT NULL;
 ALTER TABLE kunden ADD CONSTRAINT uq_email UNIQUE (email);
 ALTER TABLE bestellungen ADD CONSTRAINT chk_preis_positiv CHECK (preis > 0);
+
+-- Nachträglich einen Fremdschlüssel hinzufügen.
+ALTER TABLE RECHNUNGS_KOPF              -- <- Tabelle
+ADD CONSTRAINT fk_Tarife_tarif_id       -- <- Name des Schlüssels
+FOREIGN KEY (Tarif_id)                  -- <- Feldname der Tabelle
+REFERENCES  Tarife(Tarif_id);           -- <- Referenz-Tabelle und Feld
 
 -- Beispiel für einen CHECK-Constraint mit festen Text-Werten (Status-Validierung)
 ALTER TABLE bestellungen ADD status VARCHAR2(20);
