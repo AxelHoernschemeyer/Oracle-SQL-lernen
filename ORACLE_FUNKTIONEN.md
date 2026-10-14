@@ -84,6 +84,22 @@ CREATE TABLE Bestellungen
 	artikel_name	varchar2(50)
 	);
 ```
+Beispiel für einen zusammengesetzten PK und einen Fremdschlüssel.
+```sql
+CREATE TABLE Rechnungs_Zeilen (
+	Rechnungs_ID			NUMBER NOT NULL,
+	Pos_ID					NUMBER NOT NULL,
+	Typ						varchar2(10),
+	Verbindungszeitpunkt	DATE,
+	Rufnummer				varchar2(20),
+	Beschreibung			varchar2(50),
+	Dauer_Sekunden			Number, 
+	Datenvolumen_KB			NUMBER,
+	Preis					NUMBER(5,2),
+	CONSTRAINT Pk_Rechnungs_POS PRIMARY KEY (Rechnungs_ID, POS_ID),
+	CONSTRAINT FK_Rechnungs_iD foreign KEY (Rechnungs_ID) REFERENCES Rechnungs_Kopf(RG_ID)
+);
+```
 ### Tabellenstruktur ändern (ALTER TABLE)
 Modifiziert die Architektur einer bereits existierenden Tabelle, ohne dass Daten gelöscht werden müssen.
 
