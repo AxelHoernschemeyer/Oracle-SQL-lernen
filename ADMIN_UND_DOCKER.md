@@ -17,7 +17,10 @@ Dieses Betriebshandbuch dient als zentrales Nachschlagewerk für die Einrichtung
 ## 1. Docker und Umgebung zurücksetzen
 
 Typische Befehle zur Fehlerbehebung und Systemwiederherstellung bei der Arbeit mit Oracle im Docker-Container.
-
+> Aktuelles Kennwort der Umgebung auslesen über das Terminal
+```bash
+docker inspect oracle-free --format '{{range .Config.Env}}{{println .}}{{end}}'
+```
 > ⚠️ **Achtung:** Durch das Löschen des Containers wird die Datenbank mit allen Inhalten komplett gelöscht! Stell sicher, dass deine Skripte auf GitHub gesichert sind.
 
 Wenn der Container neu gestartet oder mit Verzeichnis-Freigaben (`Volume Mapping`) versehen werden muss:
