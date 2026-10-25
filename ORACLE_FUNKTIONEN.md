@@ -1,4 +1,4 @@
-# 🐘 Das ultimative Oracle SQL & PL/SQL Spickzettel
+# 🐘 Mein Oracle SQL & PL/SQL Spickzettel
 
 ## 📑 Inhaltsverzeichnis
 
